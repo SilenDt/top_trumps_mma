@@ -1,4 +1,4 @@
-Top trumps MMA
+## Top trumps MMA
 
 The ultimate card fighting challenge! Overcome awesome foes in your quest to become the top trumper! 
 
