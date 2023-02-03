@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mongodb": "^3.5.7"
+  },
+  "scripts": {
+  "seed": "mongosh < TopTrumpCards.js"
+  }
+}
