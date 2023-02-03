@@ -1,15 +1,15 @@
 const express = require('express');
 
-const createRouter = function (data) {
+const createRouter = function (collection) {
 
     const router = express.Router();
     // base URL: http://localhost:9000/api/cards/
 
     router.get('/', (req, res) => {
-        res.json(data);
+        collection.find().toArray()
+        .then((docs) => (res.json(docs)));
     });
 
-    // res.json(dummyData[Godzilla])
     router.get('/:id', (req, res) => {
         res.json(data[req.params.id]);
     });
