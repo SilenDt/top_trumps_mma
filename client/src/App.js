@@ -1,12 +1,18 @@
 import './App.css';
 import CardDisplay from "./containers/CardDisplay"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 function App() {
 
   const [object, setObject] = useState({name: "superman", strength: 99, speed: 89})
+
+  useEffect(() => {
+    // load up the database
+    databaseServer()
+  }, [])
+
 
   return (
     <div>
