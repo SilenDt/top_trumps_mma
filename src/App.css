@@ -6,3 +6,9 @@ h1 {
 h2 {
   color: rgb(59, 138, 228);
 }
+
+.card-display {
+  background-color: brown;
+  border: 4px solid white;
+  border-radius: 4px;
+}
