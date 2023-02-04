@@ -3,7 +3,9 @@ const app = express();
 app.use(express.json());
 const createRouter = require('./helpers/create_router.js');
 const MongoClient = require('mongodb').MongoClient;
-// const cors = require('cors');
+const cors = require('cors');
+
+app.use(cors());
 
 // const dummyData = [
 //     {name: "SpiderMan", speed: 90, strength: 15,intelligence: 80, },
@@ -11,8 +13,6 @@ const MongoClient = require('mongodb').MongoClient;
 //     {name: "King Kong", speed: 65, strength: 85, intelligence: 55, } ,
 //     {name: "Jooooooohn Cena", speed: 24, strength: 99, intelligence: 40}
 // ]
-
-// app.use(cors());
 
 
 // database = TopTrumpsCards
