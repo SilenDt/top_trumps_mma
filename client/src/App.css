@@ -21,3 +21,12 @@ h2 {
   padding: 0.5em;
   border-radius: 4px;
 }
+
+.score-box {
+  margin: 1em;
+  background-color: aqua;
+}
+
+.character-image {
+  max-width: 10em;
+}

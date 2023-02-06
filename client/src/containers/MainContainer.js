@@ -1,6 +1,8 @@
-import CardDisplay from "./CardDisplay"
+import CardDisplay from "../components/CardDisplay"
 import arrayShuffle from 'array-shuffle';
 import { useState, useEffect } from 'react';
+import PlayerContainer from "./PlayerContainer";
+import ComputerContainer from "./ComputerContainer";
 
 const MainContainer = () => {
 
@@ -30,6 +32,7 @@ const MainContainer = () => {
         .then(data => {
             setCards(data)
             shuffleBothDecks(data) // split the deck between two players
+            
         }) 
     }, [])
 
@@ -66,11 +69,15 @@ const MainContainer = () => {
         setPlayerDeck(newPlayerDeck)
         setCurrentPlayerCard(newPlayerDeck[0])
         setCurrentComputerCard(newComputerDeck[0])
+        setPlayerScore(newPlayerDeck.length)
+        setComputerScore(newComputerDeck.length)
     }
 
+    const setStat = (stat)=> {
+        setChosenStat(stat)
+    }
 
-
-    const renderCardDisplay = (user) => {
+    const renderEachPlayersContainer = (user) => {
         // // debug
         // console.log("rendering cards")
         // console.log(deck)
@@ -83,9 +90,9 @@ const MainContainer = () => {
 
         // if player deck dispay player card; else computer card
         if (user === "player" && currentPlayerCard) {
-            return (<CardDisplay object={currentPlayerCard}/>)
+            return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
         } else if (user ==="computer" && currentComputerCard) {
-            return (<CardDisplay object={currentComputerCard}/>)
+            return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
         }
     }
 
@@ -93,11 +100,11 @@ const MainContainer = () => {
         <>
             <div className="player-deck">
                 <h2>Computer Deck</h2>
-                {renderCardDisplay("computer")}
+                {renderEachPlayersContainer("computer")}
             </div>
             <div className="player-deck">
             <h2>Player Deck</h2>
-                {renderCardDisplay("player")}
+                {renderEachPlayersContainer("player")}
             </div>
         </>
     )
