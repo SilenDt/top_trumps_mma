@@ -123,12 +123,16 @@ const MainContainer = () => {
         console.log("this is the computers new deck")
         console.log(copyOfComputerDeck)
         //splice out the first card
-        const computerCard = copyOfComputerDeck.splice(0,1)
+        const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
+        const computerCard = arrayOfComputerCard[0]
         //setComputerDeck to new copy
         setComputerDeck(copyOfComputerDeck)
         //make a copy of playerDeck and splice out the first card
         const copyOfPlayerDeck = [...playerDeck]
-        const playerCard = copyOfPlayerDeck.splice(0,1)
+        const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
+        const playerCard = arrayOfPlayerCard[0]
+        console.log(playerCard)
+        console.log("playerCard")
         //add player's spliced card to the back of the copy of the player deck
         copyOfPlayerDeck.push(playerCard)
         //add computer's spliced card to the back of the copy of the player deck
@@ -143,6 +147,31 @@ const MainContainer = () => {
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
 
+        } else if (currentPlayerValue < currentComputerValue) {
+        //make a copy of computer deck
+        const copyOfComputerDeck = [...computerDeck]
+        //splice out the first card
+        const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
+        const computerCard = arrayOfComputerCard[0]
+        //make a copy of playerDeck and splice out the first card
+        const copyOfPlayerDeck = [...playerDeck]
+        const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
+        const playerCard = arrayOfPlayerCard[0]
+        //add player's spliced card to the back of the copy of the computer deck
+        copyOfComputerDeck.push(playerCard)
+        //add computer's spliced card to the back of the copy of the computer deck
+        copyOfComputerDeck.push(computerCard)
+        //set the Player's deck to the copy of the Players Deck
+        setPlayerDeck(copyOfPlayerDeck)
+        //setComputerDeck to new copy
+        setComputerDeck(copyOfComputerDeck)
+        //check that there are still cards in the computer deck
+        if (copyOfComputerDeck.length === 0) {
+            setStateOfPlay("Victory")
+        }
+        //draw next card
+        setCurrentPlayerCard(playerDeck[0])
+        setCurrentComputerCard(computerDeck[0])
         }
     }
 
