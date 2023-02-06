@@ -63,49 +63,20 @@ const MainContainer = () => {
         // update useStates with shuffled cards
         setComputerDeck(newComputerDeck)
         setPlayerDeck(newPlayerDeck)
+        setCurrentPlayerCard(newPlayerDeck[0])
+        setCurrentComputerCard(newComputerDeck[0])
     }
 
 
 
-
-
-
-
-
-
-
-    // copied
-    //   const shuffleDeckForBothPlayers = () => {
-    //     let copyOfCards = cards.map((cardInDeck) => cardInDeck)
-    //     const shuffledDeck = copyOfCards.sort(() => Math.random() - 0.5)
-    //     let playerAssignment = 0
-    //     let dealtCards = [[], []]
-    //     shuffledDeck.forEach((card) => {
-    //       let playerNumber = playerAssignment % 2
-    //       dealtCards[playerNumber].push(card)
-    //       playerAssignment += 1
-    //     })
-    //     return dealtCards
-    //   }
-
-
-
-// copied
-    //   const setupGame = () => {
-    //     const dealtCards = shuffleDeckForBothPlayers() 
-    //     console.log(dealtCards)
-    //     const player1Deck = [...dealtCards[0]]
-    //     const player2Deck = [...dealtCards[1]]
-    //     selectCards(player1Deck, player2Deck)
-    //     setWinner(null)
-    //   }
-
-
-
-
+    // build HTML elements
+    const renderCardDisplay = cards.map((character) => {
+        return (<CardDisplay object={character}/>)
+        })
 
 
     const renderCardDisplay = (deck) => {
+
 
         // // debug
         // console.log("rendering cards")
