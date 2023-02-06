@@ -172,6 +172,22 @@ const MainContainer = () => {
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
+        } else if 
+            (currentPlayerValue === currentComputerValue){
+                const copyOfPlayerDeck = [...playerDeck]
+                const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
+                const playerCard = arrayOfPlayerCard[0]
+                const copyOfComputerDeck = [...computerDeck]
+                const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
+                const computerCard = arrayOfComputerCard[0]
+                copyOfPlayerDeck.push(playerCard)
+                copyOfComputerDeck.push(computerCard)
+                setCurrentPlayerCard(playerDeck[0])
+                setCurrentComputerCard(computerDeck[0])
+                setPlayerDeck(copyOfPlayerDeck)
+                //setComputerDeck to new copy 
+                setComputerDeck(copyOfComputerDeck)
+                console.log("values equal")
         }
     }
 
