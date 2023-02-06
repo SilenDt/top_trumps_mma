@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const MainContainer = () => {
 
     const [cards, setCards] = useState([])
-    const [playerDeck, setPlayerDeck] = useState([])
+    const [playerDeck, setPlayerDeck] = useState([{name:"This hasn't loaded yet", intelligence: 0, speed: 0, strength: 0}])
     const [computerDeck, setComputerDeck] = useState([])
 
     const [playerScore, setPlayerScore] = useState(0)
@@ -38,10 +38,11 @@ const MainContainer = () => {
 
         const shuffledDeck = arrayShuffle(copyOfCards)
 
-        console.log(`original full deck: `)
-        console.log(copyOfCards)
-        console.log(`shuffled deck:`)
-        console.log(shuffledDeck)
+        // // debug
+        // console.log(`original full deck: `)
+        // console.log(copyOfCards)
+        // console.log(`shuffled deck:`)
+        // console.log(shuffledDeck)
 
         //iterate between player 1 and 2
         let playerNumber = 1 
@@ -104,19 +105,27 @@ const MainContainer = () => {
 
 
 
-    const renderCardDisplay = cards.map((character) => {
-        return (<CardDisplay object={character}/>)
+    const renderCardDisplay = (deck) => {
+
+        // // debug
+        // console.log("rendering cards")
+        // console.log(deck)
+
+        return deck.map((character) => {
+            return (<CardDisplay object={character}/>)
         })
-
-    // useEffect(() => {
-    //   // load up the database
-    //     databaseServer()
-    // }, [])
-
+    }
 
     return (
         <>
-            {renderCardDisplay}
+            <div className="player-deck">
+                <h2>Computer Deck</h2>
+                {renderCardDisplay(computerDeck)}
+            </div>
+            <div className="player-deck">
+            <h2>Player Deck</h2>
+                {renderCardDisplay(playerDeck)}
+            </div>
         </>
     )
 }
