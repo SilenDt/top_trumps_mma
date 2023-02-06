@@ -8,7 +8,8 @@ const MainContainer = () => {
     const [playerDeck, setPlayerDeck] = useState([{name:"This hasn't loaded yet", intelligence: 0, speed: 0, strength: 0}])
     const [computerDeck, setComputerDeck] = useState([])
 
-    const [playerScore, setPlayerScore] = useState(0)
+    //Take length of player decks
+    const [playerScore, setPlayerScore] = useState(0) 
     const [computerScore, setComputerScore] = useState(0)
 
     const [currentPlayer, setCurrentPlayer] = useState('player') //'player' or 'computer'
@@ -69,27 +70,34 @@ const MainContainer = () => {
 
 
 
-    const renderCardDisplay = (deck) => {
-
-
+    const renderCardDisplay = (user) => {
         // // debug
         // console.log("rendering cards")
         // console.log(deck)
 
-        return deck.map((character) => {
-            return (<CardDisplay object={character}/>)
-        })
+        // return deck.map((character) => {
+        //     return (<CardDisplay object={character}/>)
+        // })
+
+        // refactor to display current card only
+
+        // if player deck dispay player card; else computer card
+        if (user === "player" && currentPlayerCard) {
+            return (<CardDisplay object={currentPlayerCard}/>)
+        } else if (user ==="computer" && currentComputerCard) {
+            return (<CardDisplay object={currentComputerCard}/>)
+        }
     }
 
     return (
         <>
             <div className="player-deck">
                 <h2>Computer Deck</h2>
-                {renderCardDisplay(computerDeck)}
+                {renderCardDisplay("computer")}
             </div>
             <div className="player-deck">
             <h2>Player Deck</h2>
-                {renderCardDisplay(playerDeck)}
+                {renderCardDisplay("player")}
             </div>
         </>
     )
