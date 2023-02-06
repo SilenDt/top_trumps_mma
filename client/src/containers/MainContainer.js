@@ -69,12 +69,6 @@ const MainContainer = () => {
 
 
 
-    // build HTML elements
-    const renderCardDisplay = cards.map((character) => {
-        return (<CardDisplay object={character}/>)
-        })
-
-
     const renderCardDisplay = (deck) => {
 
 
