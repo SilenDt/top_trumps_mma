@@ -1,7 +1,7 @@
 import './App.css';
 import CardDisplay from "./containers/CardDisplay"
-import { useState, useEffect } from 'react';
 
+import { useState, useEffect } from 'react';
 
 
 function App() {
@@ -17,6 +17,12 @@ function App() {
   const renderCardDisplay = cards.map((character) => {
       return (<CardDisplay object={character}/>)
     })
+
+  useEffect(() => {
+    // load up the database
+    databaseServer()
+  }, [])
+
 
   return (
     <div>
