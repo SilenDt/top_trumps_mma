@@ -20,6 +20,7 @@ const MainContainer = () => {
     const [currentComputerCard, setCurrentComputerCard] = useState(null)
     
     const [chosenStat, setChosenStat] = useState(null)
+
     const [isPlayerCardHigher, setIsPlayerCardHigher]  = useState(null) //boolean
     const [roundWinner, setRoundWinner] = useState(null) 
 
@@ -35,6 +36,11 @@ const MainContainer = () => {
             
         }) 
     }, [])
+
+    useEffect(() => {
+        setPlayerScore(playerDeck.length)
+        setComputerScore(computerDeck.length)
+    }, [playerDeck])
 
 
     const shuffleBothDecks = (input_cards) => {
@@ -72,9 +78,72 @@ const MainContainer = () => {
         setPlayerScore(newPlayerDeck.length)
         setComputerScore(newComputerDeck.length)
     }
+    //this is only called when its the computer's turn
+    const chooseComputerOption = () => {
+        let answer = Math.random()*3
+        if (answer < 1) {
+            setChosenStat("strength")
+            return 
+        } else if( answer < 2) {
+            setChosenStat("speed")
+            return
+        } else {
+            setChosenStat("intelligence")
+        }
+    }
 
     const setStat = (stat)=> {
         setChosenStat(stat)
+        console.log(stat)
+
+        //compare cards
+        let currentPlayerValue = 0
+        let currentComputerValue = 0
+
+        if(stat == "strength") {
+            currentPlayerValue = currentPlayerCard.strength
+            currentComputerValue = currentComputerCard.strength
+        } else if(stat == "speed") {
+            currentPlayerValue = currentPlayerCard.speed
+            currentComputerValue = currentComputerCard.speed
+        
+        } else if(stat == "intelligence") {
+            currentPlayerValue = currentPlayerCard.intelligence
+            currentComputerValue = currentComputerCard.intelligence
+        }
+
+        if (currentPlayerValue > currentComputerValue) {
+        console.log(currentPlayerValue)
+        console.log(currentComputerValue)
+        console.log("comparing")
+            //reveal opponents card
+        
+        //make a copy of computer deck
+        const copyOfComputerDeck = [...computerDeck]
+        console.log("this is the computers new deck")
+        console.log(copyOfComputerDeck)
+        //splice out the first card
+        const computerCard = copyOfComputerDeck.splice(0,1)
+        //setComputerDeck to new copy
+        setComputerDeck(copyOfComputerDeck)
+        //make a copy of playerDeck and splice out the first card
+        const copyOfPlayerDeck = [...playerDeck]
+        const playerCard = copyOfPlayerDeck.splice(0,1)
+        //add player's spliced card to the back of the copy of the player deck
+        copyOfPlayerDeck.push(playerCard)
+        //add computer's spliced card to the back of the copy of the player deck
+        copyOfPlayerDeck.push(computerCard)
+        //set the Player's deck to the copy of the Players Deck
+        setPlayerDeck(copyOfPlayerDeck)
+        //check that there are still cards in the computer deck
+        if (copyOfComputerDeck.length === 0) {
+            setStateOfPlay("Victory")
+        }
+        //draw next card
+        setCurrentPlayerCard(playerDeck[0])
+        setCurrentComputerCard(computerDeck[0])
+
+        }
     }
 
     const renderEachPlayersContainer = (user) => {
