@@ -9,5 +9,6 @@ db.superHeroCards.insertMany([
     {name: "Magnus Carlsen",    speed: 19, strength: 8, intelligence: 98, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyvTA5ttAxX0zopCV1Rlh2g_e37NbZC4sP5g&usqp=CAU"},
     {name: "Tasmanian Devil",   speed: 44, strength: 40, intelligence: 2, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH57bAGIFRW6N4nNGlB1b2n0mbdELWmRdU1Q&usqp=CAU"},
     {name: "Road Runner",       speed: 96, strength: 6, intelligence: 84, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfkwicm-hj7QWWsoA5y-X5k7ruooy-4o2Jbg&usqp=CAU"},
-
+    {name: "Godzilla", speed: 45, strength: 95,intelligence: 75, },
+    {name: "King Kong", speed: 65, strength: 85, intelligence: 55, }
 ])

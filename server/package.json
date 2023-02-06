@@ -1,8 +1,23 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
     "mongodb": "^3.5.7"
   },
   "scripts": {
-  "seed": "mongosh < TopTrumpCards.js"
+    "seed": "mongosh < TopTrumpCards.js",
+    "install server:dev": "npm install --save-dev nodemon",
+    "start": "node server.js",
+    "server:dev": "nodemon server.js"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "Router.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.20"
   }
 }

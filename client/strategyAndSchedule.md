@@ -6,6 +6,7 @@
 | End| 4pm   | 3pm     | Off   |  4pm |
 | Location |CodeClan| Fraser R's (Fraser J remote) | N/A | CodeClan
 
+Monday lunch at 12:30-2pm
 ### Standup 
 
 ##### Standup - 10-15min

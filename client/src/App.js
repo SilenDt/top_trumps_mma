@@ -1,12 +1,22 @@
 import './App.css';
 import CardDisplay from "./containers/CardDisplay"
-import { useEffect, useState } from 'react';
 
+import { useState, useEffect } from 'react';
 
 
 function App() {
 
-  const [object, setObject] = useState({name: "superman", strength: 99, speed: 89})
+  const [cards, setCards] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9000/api/cards/')
+      .then(response => response.json())
+      .then(data => setCards(data));
+  })
+
+  const renderCardDisplay = cards.map((character) => {
+      return (<CardDisplay object={character}/>)
+    })
 
   useEffect(() => {
     // load up the database
@@ -16,11 +26,8 @@ function App() {
 
   return (
     <div>
-    <h1>Top Trumps MMA</h1>
-    <h2>Eilidh</h2>
-    <h2>Sam</h2>
-    <h2>Double Fraser</h2>
-    <CardDisplay object={object}/>
+      
+    {renderCardDisplay}
     </div>
   );
 }
