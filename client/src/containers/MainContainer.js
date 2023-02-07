@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import PlayerContainer from "./PlayerContainer";
 import ComputerContainer from "./ComputerContainer";
 import GameInfoDisplay from "../components/GameInfoDisplay";
+import chooseOption from "../components/helpers/ComputerLogic";
 
 const MainContainer = () => {
 
@@ -60,7 +61,8 @@ const MainContainer = () => {
     useEffect(() => {
         if (currentPlayer !== 'player'){
             console.log("computer is choosing...")
-            let computerOption = chooseComputerOption()
+            let intelligentOption = chooseOption(currentComputerCard)
+            let computerOption = chooseComputerOption(intelligentOption)
             setTimeout(setStat, 1700, computerOption)
         }
     }, [currentPlayer])
@@ -102,12 +104,11 @@ const MainContainer = () => {
         setComputerScore(newComputerDeck.length)
     }
     //this is only called when its the computer's turn
-    const chooseComputerOption = () => {
-        let answer = Math.random()*3
-        if (answer < 1) {
+    const chooseComputerOption = (chosen_option) => {
+        if (chosen_option < 1) {
             setChosenStat("strength")
             return "strength"
-        } else if( answer < 2) {
+        } else if( chosen_option < 2) {
             setChosenStat("speed")
             return "speed"
         } else {
