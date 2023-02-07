@@ -7,8 +7,10 @@ const PlayerContainer = ({score, card, setStat}) => {
 
     return (
         <div className="player-container">
-        <Score score={score}/>
-        <CardDisplay card={card} setStat={setStat} />
+            <Score score={score}/>
+            <div className="card">
+                <CardDisplay card={card} setStat={setStat} />
+            </div>
         </div>
     )
 }
