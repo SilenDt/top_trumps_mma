@@ -3,6 +3,7 @@ import arrayShuffle from 'array-shuffle';
 import { useState, useEffect } from 'react';
 import PlayerContainer from "./PlayerContainer";
 import ComputerContainer from "./ComputerContainer";
+import GameInfoDisplay from "../components/GameInfoDisplay";
 
 const MainContainer = () => {
 
@@ -22,7 +23,7 @@ const MainContainer = () => {
     const [chosenStat, setChosenStat] = useState(null)
 
     const [isPlayerCardHigher, setIsPlayerCardHigher]  = useState(null) //boolean
-    const [roundWinner, setRoundWinner] = useState(null) 
+    const [roundWinner, setRoundWinner] = useState("first round") 
 
     const [stateOfPlay, setStateOfPlay] = useState('loading') //'loading', 'inPlay', 'victory', 'defeat'
 
@@ -136,7 +137,6 @@ const MainContainer = () => {
 
         // player wins round
         if (currentPlayerValue > currentComputerValue) {
-        console.log("players card is higher")
         console.log(currentPlayerValue)
         console.log(currentComputerValue)
             //reveal opponents card
@@ -170,6 +170,7 @@ const MainContainer = () => {
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
+        setRoundWinner("player")
 
         // computer wins the round
         } else if (currentPlayerValue < currentComputerValue) {
@@ -199,6 +200,7 @@ const MainContainer = () => {
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
+        setRoundWinner("computer")
 
         // computer wins so gets a turn
         // 'computer-again' required to register change in useEffect and continue computers turn
@@ -211,7 +213,6 @@ const MainContainer = () => {
         // cards are equal!
         } else if 
             (currentPlayerValue === currentComputerValue){
-                console.log("draw")
                 const copyOfPlayerDeck = [...playerDeck]
                 const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
                 const playerCard = arrayOfPlayerCard[0]
@@ -226,6 +227,7 @@ const MainContainer = () => {
                 //setComputerDeck to new copy 
                 setComputerDeck(copyOfComputerDeck)
                 console.log("values equal")
+                setRoundWinner("draw")
         }
         return true
     }
@@ -266,6 +268,10 @@ const MainContainer = () => {
             <div className="player-deck">
                 <h2>Computer Deck</h2>
                 {renderEachPlayersContainer("computer")}
+            </div>
+            <div className="game-info"> 
+            <h2>Game Info</h2>
+            <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner}/>
             </div>
             <div className="player-deck">
             <h2>Player Deck</h2>
