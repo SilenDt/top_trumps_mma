@@ -43,7 +43,7 @@ db.superHeroCards.insertMany([{
     speed: 30, 
     strength: 60, 
     intelligence: 100,
-    url:"https://static.wikia.nocookie.net/starwars/images/c/c3/Yoda_TPM_RotS.png/revision/latest?cb=20130810185858" 
+    url:"https://thesmallscreensociety.files.wordpress.com/2020/05/81l74srlenl._sl1500_.jpg?w=640   " 
 },
 {
     name: "Chun Li", 

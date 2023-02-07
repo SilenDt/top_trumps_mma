@@ -20,33 +20,36 @@ h2 {
   margin: 2em;
   padding: 0.5em;
   border-radius: 4px;
+  display: inline-block;
 }
 
 .score-box {
   margin: 1em;
   background-color: aqua;
-  border-radius: 3em;
+  border-radius: 4em;
   padding: 15px;
+  max-height: 2em;
+  max-width: 2em;
+  text-align: center;
 }
 
 .character-image {
   max-width: 10em;
+  min-width: 10em;
+  max-height: 10em;
+  min-height: 10em;
 }
 
 /*--------------------------------------*/
-.player-deck {
-  display: flex;
-}
+
 
 .player-container {
-  padding-right: 50px;
-  display: flex;
 }
 
 .computer-container {
-  margin-left: 450px;
-  display: flex;
 }
+
+
 
 
 
