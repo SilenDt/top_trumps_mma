@@ -8,14 +8,18 @@ const ComputerContainer = ({score, card, currentPlayer}) => {
         return (
             <div className="computer-container">
                 <Score score={score}/>
+                <div className="card">
                 <CardDisplay card={card} hiddenStats={false}/>
+                </div>
             </div>
         )
     } else {
         return (
             <div className="computer-container">
                 <Score score={score}/>
+                <div className="card">
                 <CardDisplay card={card} hiddenStats={true}/>
+                </div>
             </div>
         )
     }
