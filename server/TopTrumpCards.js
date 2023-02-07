@@ -14,7 +14,7 @@ db.superHeroCards.insertMany([{
     speed: 30,
     strength: 80,
     intelligence: 50, 
-    url:"https://static.wikia.nocookie.net/p__/images/6/6a/ShrekTheSaviour.png/revision/latest/scale-to-width-down/1200?cb=20221022171950&path-prefix=protagonist"
+    url:"https://cdn.mos.cms.futurecdn.net/5YVuVeN368xwysZG6fUjwV-480-80.jpg"
 },
 {
     name: "Beyonce",
@@ -50,14 +50,14 @@ db.superHeroCards.insertMany([{
     speed: 30, 
     strength: 70, 
     intelligence: 60, 
-    url:"https://static.wikia.nocookie.net/megaman/images/3/3b/Mega_Man_X_DiVE_Hunter_Program_CHUN-LI.png/revision/latest?cb=20210930081037"
+    url:"https://static.miraheze.org/greatcharacterswiki/f/fd/Chyu.jpg"
 },
 {
-    name: "Mokushin", 
+    name: "Mokujin", 
     speed:30, 
     strength: 75, 
     intelligence: 30, 
-    url:"https://static.wikia.nocookie.net/tekken/images/8/80/Mokujin-tekken-tag-tournament-2-picture.jpg/revision/latest?cb=20121229003334&path-prefix=es"
+    url:"https://upload.wikimedia.org/wikipedia/en/3/31/Mokujin_Tekken.png"
 },
 {
     name: "Yoshi", 
@@ -78,17 +78,83 @@ db.superHeroCards.insertMany([{
     speed: 30, 
     strength: 20, 
     intelligence: 50, 
-    url:"https://static.wikia.nocookie.net/p__/images/9/91/RaymanMRSOH.png/revision/latest?cb=20221103210303&path-prefix=protagonist"
+    url:"https://cdn.imgbin.com/4/16/13/imgbin-rayman-origins-rayman-legends-rayman-3-hoodlum-havoc-rayman-raving-rabbids-2-others-5UPuxMXf3tVczkWb2w2E6sULC.jpg"
 },
 
-    {name: "Evil Emporer Zurg", speed: 12, strength: 73, intelligence: 49, url: "https://i.insider.com/617c0b4e1037b1001814efeb?width=1000&format=jpeg&auto=webp", url_2: "https://static.wikia.nocookie.net/disney/images/c/c5/Toy-story2-disneyscreencaps.com-8243.jpg/revision/latest?cb=20130508003153"},
-    {name: "Buzz Lightyear",    speed: 51, strength: 37, intelligence: 35, url: "https://upload.wikimedia.org/wikipedia/en/b/b4/Buzz_Lightyear.png" },
-    {name: "Dr Strange",        speed: 21, strength: 78, intelligence: 92, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdaKrB5MdLBZk-3obCJN-OHJeZ3enzKqC-yA&usqp=CAU"},
-    {name: "A common toirtoise",speed: 1, strength: 4, intelligence: 80, url: "https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2011/08/tortoise-2.jpg"},
-    {name: "Magnus Carlsen",    speed: 19, strength: 8, intelligence: 98, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyvTA5ttAxX0zopCV1Rlh2g_e37NbZC4sP5g&usqp=CAU"},
-    {name: "Tasmanian Devil",   speed: 44, strength: 40, intelligence: 2, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH57bAGIFRW6N4nNGlB1b2n0mbdELWmRdU1Q&usqp=CAU"},
-    {name: "Road Runner",       speed: 96, strength: 6, intelligence: 84, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfkwicm-hj7QWWsoA5y-X5k7ruooy-4o2Jbg&usqp=CAU"},
-    {name: "Godzilla", speed: 45, strength: 95,intelligence: 75, },
-    {name: "King Kong", speed: 65, strength: 85, intelligence: 55, }
+{
+    name: "Evil Emporer Zurg", 
+    speed: 12, 
+    strength: 73, 
+    intelligence: 49, 
+    url: "https://i.insider.com/617c0b4e1037b1001814efeb?width=1000&format=jpeg&auto=webp", url_2: "https://static.wikia.nocookie.net/disney/images/c/c5/Toy-story2-disneyscreencaps.com-8243.jpg/revision/latest?cb=20130508003153"},
+
+{
+    name: "Buzz Lightyear",    
+    speed: 51,
+    strength: 37, 
+    intelligence: 35, 
+    url: "https://upload.wikimedia.org/wikipedia/en/b/b4/Buzz_Lightyear.png" },
+
+{
+    name: "Dr Strange",        
+    speed: 21, strength: 78, 
+    intelligence: 92, 
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdaKrB5MdLBZk-3obCJN-OHJeZ3enzKqC-yA&usqp=CAU"},
+
+{
+    name: "A common toirtoise",
+    speed: 1, 
+    strength: 4, 
+    intelligence: 80, 
+    url: "https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2011/08/tortoise-2.jpg"},
+{
+    name: "Magnus Carlsen",    
+    speed: 19, 
+    strength: 8, 
+    intelligence: 98, 
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyvTA5ttAxX0zopCV1Rlh2g_e37NbZC4sP5g&usqp=CAU"},
+
+{
+    name: "Tasmanian Devil",   
+    speed: 44, 
+    strength: 40, 
+    intelligence: 2, 
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH57bAGIFRW6N4nNGlB1b2n0mbdELWmRdU1Q&usqp=CAU"},
+
+{name: "Road Runner",       
+speed: 96, 
+strength: 6, 
+intelligence: 84, 
+url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfkwicm-hj7QWWsoA5y-X5k7ruooy-4o2Jbg&usqp=CAU"},
+
+
+
+{name: "Harry Potter",       
+speed: 30, 
+strength: 45, 
+intelligence: 60, 
+url: "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0MzY1Mjc2Nzg2MTQwODA2/the-best-and-worst-book-to-film-harry-potter-characters.jpg"
+},
+
+{name: "Voldemort",       
+speed: 25, 
+strength: 50, 
+intelligence: 75, 
+url: "https://cdn11.bigcommerce.com/s-ydriczk/products/89127/images/93849/Lord-Voldemort-Harry-Potter-Official-cardboard-cutout-buy-now-at-starstills__74553.1582849830.450.659.jpg?c=2"
+},
+
+{name: "Dhalsim",       
+speed: 30, 
+strength: 60, 
+intelligence: 85, 
+url: "https://w7.pngwing.com/pngs/866/236/png-transparent-capcom-dalsim-street-fighter-ii-the-world-warrior-dhalsim-magic-the-gathering-light-on-life-the-yoga-journey-to-wholeness-inner-peace-and-ultimate-freedom-street-fighter-video.png"
+},
+
+{name: "Poison Ivy",       
+speed: 25, 
+strength: 45, 
+intelligence: 60, 
+url: "https://static.wikia.nocookie.net/character-level/images/f/f8/43cd88a18079047aaac8495d6e4b4306-d6qng56.png/revision/latest?cb=20190411132611"
+},
 
 ])

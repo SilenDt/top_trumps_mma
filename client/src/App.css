@@ -25,8 +25,28 @@ h2 {
 .score-box {
   margin: 1em;
   background-color: aqua;
+  border-radius: 3em;
+  padding: 15px;
 }
 
 .character-image {
   max-width: 10em;
 }
+
+/*--------------------------------------*/
+.player-deck {
+  display: flex;
+}
+
+.player-container {
+  padding-right: 50px;
+  display: flex;
+}
+
+.computer-container {
+  margin-left: 450px;
+  display: flex;
+}
+
+
+
