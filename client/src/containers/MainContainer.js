@@ -54,6 +54,20 @@ const MainContainer = () => {
         setComputerScore(computerDeck.length)
     }, [playerDeck])
 
+    // when computers turn setStat
+    useEffect(() => {
+        if (currentPlayer === 'computer'){
+            console.log("computer is choosing...")
+            let computerOption = chooseComputerOption()
+            setTimeout(setStat, 1700, computerOption)
+        }
+        if (currentPlayer === 'computer_again') {
+            console.log("computers second turn")
+            let computerOption = chooseComputerOption()
+            setTimeout(setStat, 2000, computerOption)
+        }
+    }, [currentPlayer])
+
 
     const shuffleBothDecks = (input_cards) => {
         const copyOfCards = input_cards.map((card) => card) //don't mutate the state
@@ -95,12 +109,13 @@ const MainContainer = () => {
         let answer = Math.random()*3
         if (answer < 1) {
             setChosenStat("strength")
-            return 
+            return "strength"
         } else if( answer < 2) {
             setChosenStat("speed")
-            return
+            return "speed"
         } else {
             setChosenStat("intelligence")
+            return "intelligence"
         }
     }
 
@@ -124,10 +139,11 @@ const MainContainer = () => {
             currentComputerValue = currentComputerCard.intelligence
         }
 
+        // player wins round
         if (currentPlayerValue > currentComputerValue) {
+        console.log("players card is higher")
         console.log(currentPlayerValue)
         console.log(currentComputerValue)
-        console.log("comparing")
             //reveal opponents card
         
         //make a copy of computer deck
@@ -155,11 +171,14 @@ const MainContainer = () => {
         if (copyOfComputerDeck.length === 0) {
             setStateOfPlay("victory")
         }
+        setCurrentPlayer('player')
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
 
+        // computer wins the round
         } else if (currentPlayerValue < currentComputerValue) {
+            console.log("computers card is higher")
         //make a copy of computer deck
         const copyOfComputerDeck = [...computerDeck]
         //splice out the first card
@@ -178,14 +197,24 @@ const MainContainer = () => {
         //setComputerDeck to new copy
         setComputerDeck(copyOfComputerDeck)
         //check that there are still cards in the computer deck
-        if (copyOfComputerDeck.length === 0) {
-            setStateOfPlay("Victory")
+        if (copyOfPlayerDeck.length === 0) {
+            setStateOfPlay("defeat")
         }
+
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
         setCurrentComputerCard(computerDeck[0])
+
+        // computer wins so gets a turn
+        if (currentPlayer === 'computer') {
+            setCurrentPlayer('computer_again')
+        } else {
+            setCurrentPlayer('computer')
+        }
+        // cards are equal!
         } else if 
             (currentPlayerValue === currentComputerValue){
+                console.log("draw")
                 const copyOfPlayerDeck = [...playerDeck]
                 const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
                 const playerCard = arrayOfPlayerCard[0]
@@ -201,6 +230,7 @@ const MainContainer = () => {
                 setComputerDeck(copyOfComputerDeck)
                 console.log("values equal")
         }
+        return true
     }
 
     //'loading', 'inPlay', 'victory', 'defeat'
