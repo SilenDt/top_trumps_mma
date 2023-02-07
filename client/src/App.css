@@ -5,15 +5,15 @@ h1 {
 
 h2 {
   color: rgb(59, 138, 228);
-<<<<<<< Updated upstream
-=======
+
+
   background-color: black;
   margin: 0.5em;
   border-radius: 10px;
 }
 body {
   background-color: black;
->>>>>>> Stashed changes
+
 }
 
 .card-display {
@@ -39,8 +39,6 @@ body {
   display: flex;
   flex-direction:row;
 
-<<<<<<< Updated upstream
-=======
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmb6x5tRRSXB3jd3ZAEGi9Mv-7sYAw2bwgyQ&usqp=CAU");
   background-repeat: no-repeat;
   background-size: cover;
@@ -51,7 +49,7 @@ body {
 }
 .game-info {
   text-align: center;
->>>>>>> Stashed changes
+
 }
 
 
