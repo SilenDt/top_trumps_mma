@@ -3,6 +3,10 @@ const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
     
     const showWhosTurn = (currentPlayer) => {
         let whosTurnInfo = ""
+        if (currentPlayer === "computer_again") {
+            currentPlayer = "computer"
+        }
+        
         if (currentPlayer === "player") {
             whosTurnInfo = `${currentPlayer}: It's your turn, pick a stat on your card!`
         } else {
