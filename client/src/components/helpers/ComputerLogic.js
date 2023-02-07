@@ -1,7 +1,7 @@
 
 
 // return a number 1-3
-function chooseOption(card) {
+function chooseStatWisely(card) {
 
     // if v high stat choose this
     if (card.strength > 85) {
@@ -26,5 +26,5 @@ function chooseOption(card) {
     }
 }
 
-export default chooseOption
+export default chooseStatWisely
 
