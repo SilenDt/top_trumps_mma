@@ -1,5 +1,5 @@
 
-const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
+const GameInfoDisplay = ({currentPlayer, roundWinner, cardsInDeck}) => {
     
     const showWhosTurn = (currentPlayer) => {
         let whosTurnInfo = ""
@@ -41,7 +41,8 @@ const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
         {showWhosTurn(currentPlayer)}
         <h4>Last round</h4>
         {showLastRoundWinner(roundWinner)}
-
+        <h4>Cards in deck</h4>
+        {cardsInDeck}
         </div>
     )
 }

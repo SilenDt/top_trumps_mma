@@ -9,6 +9,7 @@ import chooseStatWisely from "../components/helpers/ComputerLogic";
 const MainContainer = () => {
 
     const [cards, setCards] = useState([])
+    const [cardsInDeck, setCardsInDeck] = useState(null)
     const [playerDeck, setPlayerDeck] = useState([{name:"This hasn't loaded yet", intelligence: 0, speed: 0, strength: 0}])
     const [computerDeck, setComputerDeck] = useState([])
 
@@ -36,6 +37,7 @@ const MainContainer = () => {
         .then(data => {
             setCards(data)
             shuffleBothDecks(data) // split the deck between two players
+            setCardsInDeck(data.length)
             setStateOfPlay('inPlay')
         }) 
     }, [])
@@ -285,7 +287,7 @@ const MainContainer = () => {
             </div>
             <div className="game-info"> 
             <h2>Game Info</h2>
-            <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner}/>
+            <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner} cardsInDeck={cardsInDeck}/>
             </div>
             <div className="player-deck">
             <h2>Player</h2>
