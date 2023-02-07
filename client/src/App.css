@@ -5,6 +5,7 @@ h1 {
 
 h2 {
   color: rgb(59, 138, 228);
+  text-align: center;
 
   padding: 0.5em;
   background-color: black;
@@ -44,6 +45,14 @@ body {
   color: rgb(59, 138, 228);
 }
 
+.side-bar {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+  justify-content: start;
+}
 
 .score-box {
   margin: 1em;
@@ -61,8 +70,6 @@ body {
   color: red;
 }
 
-
-
 .character-image {
   max-width: 10em;
   min-width: 10em;
@@ -78,7 +85,15 @@ body {
   border-radius: 4px;
   margin: 0.5em;
   padding: 0.5em;
-  width: 30vw;
+  width: 30%;
+  margin-left: 12%;
+}
+
+.game-info-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /*--------------------------------------*/
@@ -97,10 +112,12 @@ body {
 .player-container {
   padding: 5px 16px;
   display: flex;
+  width: 100%;
 }
 .computer-container {
   padding: 5px 16px;
   display: flex;
+  width: 100%;
 }
 
 button  {
@@ -137,7 +154,7 @@ button:active {
   border: white solid 0.2em;
   border-radius: 10px;
   margin: 0.5em;
-  padding: 1em;
+  padding: 2em;
   font-weight: bolder;
 }
 
@@ -147,11 +164,17 @@ button:active {
   border-radius: 4%;
   border-radius: 10px;
   margin: 0.5em;
-  padding: 1em;
+  padding: 2em;
   font-weight: bolder;
 }
 
+.label-last-turn{
+  background-color: green;
+  border: white solid 0.2em;
+  border-radius: 4%;
+  border-radius: 10px;
+  margin: 0.5em;
+  padding: 2em;
+  font-weight: bolder;
 
-
-
-
+}
