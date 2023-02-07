@@ -8,11 +8,11 @@ const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
         }
         
         if (currentPlayer === "player") {
-            whosTurnInfo = `${currentPlayer}: It's your turn, pick a stat on your card!`
+            whosTurnInfo = (<p>{currentPlayer}: It's <span className="label-player">your turn</span> pick a stat on your card!</p>)
         } else {
-            whosTurnInfo = `${currentPlayer}: It's the computers turn, watch out he's fierce!`
+            whosTurnInfo = (<p>{currentPlayer}: It's the <span className="label-computer">computers turn</span>, watch out he's fierce!</p>)
         }
-        return whosTurnInfo
+        return (<span className="player-message">{whosTurnInfo}</span>)
     }
     const showLastRoundWinner = (roundWinner) => {
         let roundWinnerInfo = ""
@@ -33,7 +33,7 @@ const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
             `the last round was a ${roundWinner}`
             )
         }
-        return roundWinnerInfo
+        return (<span className="last-round-message">{roundWinnerInfo}</span>)
     }
     return (
         <div>

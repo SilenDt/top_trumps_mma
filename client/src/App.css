@@ -101,7 +101,24 @@ button:active {
   transform: translateY(4px);
 }
 
+.label-player {
+  background-color: blue;
+  border: white solid 0.2em;
+  border-radius: 10px;
+  margin: 0.5em;
+  padding: 1em;
+  font-weight: bolder;
+}
 
+.label-computer{
+  background-color: red;
+  border: white solid 0.2em;
+  border-radius: 4%;
+  border-radius: 10px;
+  margin: 0.5em;
+  padding: 1em;
+  font-weight: bolder;
+}
 
 
 
