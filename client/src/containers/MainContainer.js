@@ -27,20 +27,9 @@ const MainContainer = () => {
     const [stateOfPlay, setStateOfPlay] = useState('loading') //'loading', 'inPlay', 'victory', 'defeat'
 
     // for production
-    // // get cards from database
-    // useEffect(() => {
-    //     fetch('http://localhost:9000/api/cards/')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         setCards(data)
-    //         shuffleBothDecks(data) // split the deck between two players
-    //         setStateOfPlay('inPlay')
-    //     }) 
-    // }, [])
-
-    // for testing
+    // get cards from database
     useEffect(() => {
-        fetch('http://localhost:9000/api/small-cards/')
+        fetch('http://localhost:9000/api/cards/')
         .then(response => response.json())
         .then(data => {
             setCards(data)
@@ -48,6 +37,17 @@ const MainContainer = () => {
             setStateOfPlay('inPlay')
         }) 
     }, [])
+
+    // // for testing
+    // useEffect(() => {
+    //     fetch('http://localhost:9000/api/small-cards/')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setCards(data)
+    //         shuffleBothDecks(data) // split the deck between two players
+    //         setStateOfPlay('inPlay')
+    //     }) 
+    // }, [])
 
     useEffect(() => {
         setPlayerScore(playerDeck.length)
