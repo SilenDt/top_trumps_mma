@@ -2,8 +2,23 @@ import CardDisplay from "../components/CardDisplay"
 import Score from "../components/Score"
 
 
-const ComputerContainer = ({score, card}) => {
+const ComputerContainer = ({score, card, currentPlayer}) => {
 
+    if ( currentPlayer === 'computer' || currentPlayer === 'computer_again' ){
+        return (
+            <div className="computer-container">
+                <Score score={score}/>
+                <CardDisplay card={card} hiddenStats={false}/>
+            </div>
+        )
+    } else {
+        return (
+            <div className="computer-container">
+                <Score score={score}/>
+                <CardDisplay card={card} hiddenStats={true}/>
+            </div>
+        )
+    }
 
     return (
         <div className="computer-container">
@@ -13,6 +28,7 @@ const ComputerContainer = ({score, card}) => {
             </div>
         </div>
     )
+
 }
 
 export default ComputerContainer

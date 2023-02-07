@@ -15,7 +15,7 @@ const MainContainer = () => {
     const [playerScore, setPlayerScore] = useState(0) 
     const [computerScore, setComputerScore] = useState(0)
 
-    const [currentPlayer, setCurrentPlayer] = useState('player') //'player' or 'computer'
+    const [currentPlayer, setCurrentPlayer] = useState('player') //'player' or 'computer', 'computer_again'
 
     const [currentPlayerCard, setCurrentPlayerCard] = useState(null)
     const [currentComputerCard, setCurrentComputerCard] = useState(null)
@@ -50,12 +50,13 @@ const MainContainer = () => {
     //     }) 
     // }, [])
 
+    // keep scores updated
     useEffect(() => {
         setPlayerScore(playerDeck.length)
         setComputerScore(computerDeck.length)
     }, [playerDeck])
 
-    // when computers turn setStat
+    // when it's computers turn, invoke setStat
     useEffect(() => {
         if (currentPlayer !== 'player'){
             console.log("computer is choosing...")
@@ -117,7 +118,7 @@ const MainContainer = () => {
 
     const setStat = (stat)=> {
         setChosenStat(stat)
-        console.log(stat)
+        console.log(`chosen: ${stat}`)
 
         //compare cards
         let currentPlayerValue = 0
@@ -137,14 +138,15 @@ const MainContainer = () => {
 
         // player wins round
         if (currentPlayerValue > currentComputerValue) {
-        console.log(currentPlayerValue)
-        console.log(currentComputerValue)
-            //reveal opponents card
+        console.log("players card is higher")
+        // console.log(currentPlayerValue)
+        // console.log(currentComputerValue)
+
         
         //make a copy of computer deck
         const copyOfComputerDeck = [...computerDeck]
-        console.log("this is the computers new deck")
-        console.log(copyOfComputerDeck)
+        // console.log("this is the computers new deck")
+        // console.log(copyOfComputerDeck)
         //splice out the first card
         const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
         const computerCard = arrayOfComputerCard[0]
@@ -154,8 +156,8 @@ const MainContainer = () => {
         const copyOfPlayerDeck = [...playerDeck]
         const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
         const playerCard = arrayOfPlayerCard[0]
-        console.log(playerCard)
-        console.log("playerCard")
+        // console.log(playerCard)
+        // console.log("playerCard")
         //add player's spliced card to the back of the copy of the player deck
         copyOfPlayerDeck.push(playerCard)
         //add computer's spliced card to the back of the copy of the player deck
@@ -206,34 +208,45 @@ const MainContainer = () => {
         // 'computer-again' required to register change in useEffect and continue computers turn
         if (currentPlayer === 'computer') {
             setCurrentPlayer('computer_again')
+            console.log(`currentPlayer set to computer_again`)
         } else {
             setCurrentPlayer('computer')
+            console.log(`currentPlayer set to computer`)
         }
         
         // cards are equal!
-        } else if 
-            (currentPlayerValue === currentComputerValue){
-                const copyOfPlayerDeck = [...playerDeck]
-                const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
-                const playerCard = arrayOfPlayerCard[0]
-                const copyOfComputerDeck = [...computerDeck]
-                const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
-                const computerCard = arrayOfComputerCard[0]
-                copyOfPlayerDeck.push(playerCard)
-                copyOfComputerDeck.push(computerCard)
-                setCurrentPlayerCard(playerDeck[0])
-                setCurrentComputerCard(computerDeck[0])
-                setPlayerDeck(copyOfPlayerDeck)
-                //setComputerDeck to new copy 
-                setComputerDeck(copyOfComputerDeck)
-                console.log("values equal")
-                setRoundWinner("draw")
+
+        } else if (currentPlayerValue === currentComputerValue){
+            console.log("### draw ###")
+            const copyOfPlayerDeck = [...playerDeck]
+            const arrayOfPlayerCard = copyOfPlayerDeck.splice(0,1)
+            const playerCard = arrayOfPlayerCard[0]
+            const copyOfComputerDeck = [...computerDeck]
+            const arrayOfComputerCard = copyOfComputerDeck.splice(0,1)
+            const computerCard = arrayOfComputerCard[0]
+            copyOfPlayerDeck.push(playerCard)
+            copyOfComputerDeck.push(computerCard)
+            setCurrentPlayerCard(playerDeck[0])
+            setCurrentComputerCard(computerDeck[0])
+            setPlayerDeck(copyOfPlayerDeck)
+            //setComputerDeck to new copy 
+            setComputerDeck(copyOfComputerDeck)
+            console.log("values equal")
+            setRoundWinner("draw")
+
+            // if already computers turn when equal, carry on:
+            // iterate between the two computer-turn useStates (to activate useEffect)
+            if (currentPlayer === 'computer') {
+                setCurrentPlayer('computer_again')
+            } else if (currentPlayer === 'computer_again') {
+                setCurrentPlayer('computer')
+            }
+
         }
-        return true
     }
 
-    //'loading', 'inPlay', 'victory', 'defeat'
     // load differnet html depending on stateOfPlay
+    //'loading', 'inPlay', 'victory', 'defeat'
     const renderEachPlayersContainer = (user) => {
         
         // when playing - show cards
@@ -244,17 +257,17 @@ const MainContainer = () => {
             if (user === "player" && currentPlayerCard) {
                 return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
             }
-            else if (user ==="computer" && currentComputerCard) {
-                return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
+            else if (user ==="computer" || currentComputerCard) {
+                return (<ComputerContainer score={computerScore} card={currentComputerCard} currentPlayer={currentPlayer}/>)
             }
 
-        // when defeat show defeat screen
+        // when defeat:
         // only show next to player deck
         } else if (stateOfPlay==='defeat' && user==='player'){
             return (
                 <div className="score-box"> You lost </div>
             )
-        // when 'victory' show victory screen
+        // when 'victory'
         // only show next to player deck
         } else if (stateOfPlay==='victory' && user==='player') {
             return (
