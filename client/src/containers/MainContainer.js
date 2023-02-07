@@ -26,14 +26,26 @@ const MainContainer = () => {
 
     const [stateOfPlay, setStateOfPlay] = useState('loading') //'loading', 'inPlay', 'victory', 'defeat'
 
-    // get cards from database
+    // for production
+    // // get cards from database
+    // useEffect(() => {
+    //     fetch('http://localhost:9000/api/cards/')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setCards(data)
+    //         shuffleBothDecks(data) // split the deck between two players
+    //         setStateOfPlay('inPlay')
+    //     }) 
+    // }, [])
+
+    // for testing
     useEffect(() => {
-        fetch('http://localhost:9000/api/cards/')
+        fetch('http://localhost:9000/api/small-cards/')
         .then(response => response.json())
         .then(data => {
             setCards(data)
             shuffleBothDecks(data) // split the deck between two players
-            
+            setStateOfPlay('inPlay')
         }) 
     }, [])
 
@@ -141,7 +153,7 @@ const MainContainer = () => {
         setPlayerDeck(copyOfPlayerDeck)
         //check that there are still cards in the computer deck
         if (copyOfComputerDeck.length === 0) {
-            setStateOfPlay("Victory")
+            setStateOfPlay("victory")
         }
         //draw next card
         setCurrentPlayerCard(playerDeck[0])
@@ -191,22 +203,34 @@ const MainContainer = () => {
         }
     }
 
+    //'loading', 'inPlay', 'victory', 'defeat'
+    // load differnet html depending on stateOfPlay
     const renderEachPlayersContainer = (user) => {
-        // // debug
-        // console.log("rendering cards")
-        // console.log(deck)
+        
+        // when playing - show cards
+        if (stateOfPlay==='inPlay'){
 
-        // return deck.map((character) => {
-        //     return (<CardDisplay object={character}/>)
-        // })
+            // only render once current player card is loaded
+            // if player deck dispay player card; else computer card
+            if (user === "player" && currentPlayerCard) {
+                return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
+            }
+            else if (user ==="computer" && currentComputerCard) {
+                return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
+            }
 
-        // refactor to display current card only
-
-        // if player deck dispay player card; else computer card
-        if (user === "player" && currentPlayerCard) {
-            return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
-        } else if (user ==="computer" && currentComputerCard) {
-            return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
+        // when defeat show defeat screen
+        // only show next to player deck
+        } else if (stateOfPlay==='defeat' && user==='player'){
+            return (
+                <div className="score-box"> You lost </div>
+            )
+        // when 'victory' show victory screen
+        // only show next to player deck
+        } else if (stateOfPlay==='victory' && user==='player') {
+            return (
+                <div className="score-box">You won!</div>
+            )
         }
     }
 

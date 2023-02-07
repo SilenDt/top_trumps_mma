@@ -5,6 +5,7 @@
   },
   "scripts": {
     "seed": "mongosh < TopTrumpCards.js",
+    "wee-seed": "mongosh < smallDeck.js",
     "install server:dev": "npm install --save-dev nodemon",
     "start": "node server.js",
     "server:dev": "nodemon server.js"

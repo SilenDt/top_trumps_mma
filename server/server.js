@@ -21,8 +21,11 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
 .then((client) => {
     const db = client.db("TopTrumpCards")
     const cards = db.collection("superHeroCards")
+    const smallCards = db.collection("smallSuperHeroCards")
     const cardsRouter = createRouter(cards);
+    const smallCardsRouter = createRouter(smallCards);
     app.use("/api/cards", cardsRouter)
+    app.use("/api/small-cards", smallCardsRouter)
 })
 .catch(console.error)
 
