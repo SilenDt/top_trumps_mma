@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import PlayerContainer from "./PlayerContainer";
 import ComputerContainer from "./ComputerContainer";
 import GameInfoDisplay from "../components/GameInfoDisplay";
+import chooseStatWisely from "../components/helpers/ComputerLogic";
 
 const MainContainer = () => {
 
@@ -60,8 +61,9 @@ const MainContainer = () => {
     useEffect(() => {
         if (currentPlayer !== 'player'){
             console.log("computer is choosing...")
-            let computerOption = chooseComputerOption()
-            setTimeout(setStat, 1700, computerOption)
+            let smartChoice = chooseStatWisely(currentComputerCard)
+            let computersChoice = makeComputerChoose(smartChoice)
+            setTimeout(setStat, 1700, computersChoice)
         }
     }, [currentPlayer])
 
@@ -102,12 +104,11 @@ const MainContainer = () => {
         setComputerScore(newComputerDeck.length)
     }
     //this is only called when its the computer's turn
-    const chooseComputerOption = () => {
-        let answer = Math.random()*3
-        if (answer < 1) {
+    const makeComputerChoose = (chosen_option) => {
+        if (chosen_option < 1) {
             setChosenStat("strength")
             return "strength"
-        } else if( answer < 2) {
+        } else if( chosen_option < 2) {
             setChosenStat("speed")
             return "speed"
         } else {
@@ -170,8 +171,8 @@ const MainContainer = () => {
         }
         setCurrentPlayer('player')
         //draw next card
-        setCurrentPlayerCard(playerDeck[0])
-        setCurrentComputerCard(computerDeck[0])
+        setCurrentPlayerCard(copyOfPlayerDeck[0])
+        setCurrentComputerCard(copyOfComputerDeck[0])
         setRoundWinner("player")
 
         // computer wins the round
@@ -200,8 +201,8 @@ const MainContainer = () => {
         }
 
         //draw next card
-        setCurrentPlayerCard(playerDeck[0])
-        setCurrentComputerCard(computerDeck[0])
+        setCurrentPlayerCard(copyOfPlayerDeck[0])
+        setCurrentComputerCard(copyOfComputerDeck[0])
         setRoundWinner("computer")
 
         // computer wins so gets a turn
