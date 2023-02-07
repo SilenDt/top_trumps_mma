@@ -56,15 +56,10 @@ const MainContainer = () => {
 
     // when computers turn setStat
     useEffect(() => {
-        if (currentPlayer === 'computer'){
+        if (currentPlayer !== 'player'){
             console.log("computer is choosing...")
             let computerOption = chooseComputerOption()
             setTimeout(setStat, 1700, computerOption)
-        }
-        if (currentPlayer === 'computer_again') {
-            console.log("computers second turn")
-            let computerOption = chooseComputerOption()
-            setTimeout(setStat, 2000, computerOption)
         }
     }, [currentPlayer])
 
@@ -206,11 +201,13 @@ const MainContainer = () => {
         setCurrentComputerCard(computerDeck[0])
 
         // computer wins so gets a turn
+        // 'computer-again' required to register change in useEffect and continue computers turn
         if (currentPlayer === 'computer') {
             setCurrentPlayer('computer_again')
         } else {
             setCurrentPlayer('computer')
         }
+        
         // cards are equal!
         } else if 
             (currentPlayerValue === currentComputerValue){

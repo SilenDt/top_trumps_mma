@@ -8,7 +8,7 @@ const ComputerContainer = ({score, card}) => {
     return (
         <div className="computer-container">
             <Score score={score}/>
-            <CardDisplay card={card} />
+            <CardDisplay card={card} amIcomputer={true}/>
         </div>
     )
 }
