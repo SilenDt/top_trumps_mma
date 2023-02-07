@@ -1,13 +1,13 @@
 import StatDisplay from "./StatDisplay"
 
-const CardDisplay = ({card, setStat, amIcomputer}) => {
+const CardDisplay = ({card, setStat, hiddenStats=false}) => {
 
     const handleSetStat = (evt) => {
         setStat(evt.target.value)
     }
 
-    if(amIcomputer) {
-    
+    // hiddenStats when computers turn
+    if(hiddenStats) {
         return (
             <div className='card-display'>
                 <img src={card.url} className="character-image"></img>

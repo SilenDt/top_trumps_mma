@@ -228,18 +228,17 @@ const MainContainer = () => {
             setComputerDeck(copyOfComputerDeck)
 
             // if already computers turn when equal, carry on:
+            // iterate between the two computer-turn useStates (to activate useEffect)
             if (currentPlayer === 'computer') {
                 setCurrentPlayer('computer_again')
-
             } else if (currentPlayer === 'computer_again') {
                 setCurrentPlayer('computer')
             }
         }
-        return true
     }
 
-    //'loading', 'inPlay', 'victory', 'defeat'
     // load differnet html depending on stateOfPlay
+    //'loading', 'inPlay', 'victory', 'defeat'
     const renderEachPlayersContainer = (user) => {
         
         // when playing - show cards
@@ -250,17 +249,17 @@ const MainContainer = () => {
             if (user === "player" && currentPlayerCard) {
                 return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
             }
-            else if (user ==="computer" && currentComputerCard) {
-                return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
+            else if (user ==="computer" || currentComputerCard) {
+                return (<ComputerContainer score={computerScore} card={currentComputerCard} currentPlayer={currentPlayer}/>)
             }
 
-        // when defeat show defeat screen
+        // when defeat:
         // only show next to player deck
         } else if (stateOfPlay==='defeat' && user==='player'){
             return (
                 <div className="score-box"> You lost </div>
             )
-        // when 'victory' show victory screen
+        // when 'victory'
         // only show next to player deck
         } else if (stateOfPlay==='victory' && user==='player') {
             return (
