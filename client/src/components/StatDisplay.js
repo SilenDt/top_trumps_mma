@@ -2,7 +2,7 @@
 
 const StatDisplay = ({stat_name, object_stat}) => {
     return (
-        <div>
+        <div className="stat-display">
             <p>{stat_name}: {object_stat}</p>
         </div>
     )

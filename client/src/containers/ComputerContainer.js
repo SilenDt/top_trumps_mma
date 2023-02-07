@@ -20,6 +20,14 @@ const ComputerContainer = ({score, card, currentPlayer}) => {
         )
     }
 
+    return (
+        <div className="computer-container">
+            <Score score={score}/>
+            <div className="card">
+                <CardDisplay card={card} amIcomputer={true}/>
+            </div>
+        </div>
+    )
 
 }
 
