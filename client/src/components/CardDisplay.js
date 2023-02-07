@@ -3,7 +3,9 @@ import StatDisplay from "./StatDisplay"
 const CardDisplay = ({card, setStat, hiddenStats=false}) => {
 
     const handleSetStat = (evt) => {
+        evt.persist(); //stops bug requiring 2x clicks on fresh page
         setStat(evt.target.value)
+        
     }
 
     // hiddenStats when computers turn
