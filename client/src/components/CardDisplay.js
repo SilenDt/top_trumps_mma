@@ -1,9 +1,9 @@
 import StatDisplay from "./StatDisplay"
 
-const CardDisplay = ({card, gameRound}) => {
+const CardDisplay = ({card, playGame}) => {
 
     const handleSetStat = (evt) => {
-        gameRound(evt.target.value)
+        playGame(evt.target.value)
     }
 
     return (
