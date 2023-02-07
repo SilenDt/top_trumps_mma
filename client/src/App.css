@@ -24,7 +24,9 @@ h2 {
   flex-direction:row;
 
 }
-
+.game-info {
+  text-align: center;
+}
 
 .score-box {
   margin: 1em;
