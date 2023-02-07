@@ -142,16 +142,15 @@ const MainContainer = () => {
         console.log("values equal")
     }
 
-    const setStat = (stat)=> { //gameRound (?)
+    const playGame = (stat)=> { //gameRound (?)
         //sets the stat the user chooses to play, compares cards to each other,
         //pulls the value from the stat if it meets certain conditions,
         // if the value of the players chosen stat is higher than the computers, then
-        // 
         let currentPlayerValue = 0 
         let currentComputerValue = 0
 
         setChosenStat(stat)
-                //compare cards
+        //compare cards
         console.log(stat)
         if(stat == "strength") {
             currentPlayerValue = currentPlayerCard.strength
@@ -203,7 +202,7 @@ const MainContainer = () => {
 
         // if player deck dispay player card; else computer card
         if (user === "player" && currentPlayerCard) {
-            return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
+            return (<PlayerContainer score={playerScore} card={currentPlayerCard} gameRound={gameRound}/>)
         } else if (user ==="computer" && currentComputerCard) {
             return (<ComputerContainer score={computerScore} card={currentComputerCard}/>)
         }
