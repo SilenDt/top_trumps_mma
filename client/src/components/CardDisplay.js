@@ -1,6 +1,6 @@
 import StatDisplay from "./StatDisplay"
 
-const CardDisplay = ({card, setStat, hiddenStats=false}) => {
+const CardDisplay = ({card, setStat, hiddenStats=false, stopClicking=false}) => {
 
     const handleSetStat = (evt) => {
         evt.persist(); //stops bug requiring 2x clicks on fresh page
@@ -20,7 +20,17 @@ const CardDisplay = ({card, setStat, hiddenStats=false}) => {
                 <button value="intelligence"><span>Intelligence:</span>_________ <span>??</span></button>  
             </div>
         )
-    
+    } else if (stopClicking===true) {
+        return (
+            <div className='card-display'>
+                <img src={card.url} className="character-image"></img>
+                <StatDisplay object_stat={card.name} stat_name={"Name"}></StatDisplay>   
+                <StatDisplay object_stat={card.name} stat_name={"Bio"}></StatDisplay>     
+                <button>Strength:_________{card.strength}</button>
+                <button>Speed:_________{card.speed}</button>
+                <button>Intelligence:_________{card.intelligence}</button>
+            </div>
+        )
     } else {
         return (
             <div className='card-display'>
