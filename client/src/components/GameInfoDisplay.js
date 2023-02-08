@@ -38,6 +38,7 @@ const GameInfoDisplay = ({currentPlayer, roundWinner}) => {
     return (
         <div className="game-info-container">
         {showWhosTurn(currentPlayer)}
+        <h2>Game Info</h2>
         {showLastRoundWinner(roundWinner)}
         </div>
     )

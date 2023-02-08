@@ -11,9 +11,7 @@ const PlayerContainer = ({score, card, setStat}) => {
                 <h2>Player</h2>
                 <Score score={score}/>
             </div>
-            <div className="card">
-                <CardDisplay card={card} setStat={setStat} />
-            </div>
+            <CardDisplay card={card} setStat={setStat} />
         </div>
     )
 }
