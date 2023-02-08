@@ -60,6 +60,7 @@ const MainContainer = () => {
     // when it's computers turn, invoke setStat
     useEffect(() => {
         if (currentPlayer !== 'player'){
+            console.log(`useEffect: currentPlayer = ${currentPlayer}`)
             console.log("computer is choosing...")
             let smartChoice = chooseStatWisely(currentComputerCard)
             let computersChoice = makeComputerChoose(smartChoice)
@@ -117,6 +118,7 @@ const MainContainer = () => {
         }
     }
 
+    //  ###################################################################################### //
     // 
     const sendTopCardsTo = (whoWon) => {
         const copyOfComputerDeck = [...computerDeck]
@@ -138,14 +140,12 @@ const MainContainer = () => {
         setComputerDeck(copyOfComputerDeck)
     }
 
-    const playGame = (stat)=> { //gameRound (?)
-        //sets the stat the user chooses to play, compares cards to each other,
-        //pulls the value from the stat if it meets certain conditions,
-        // if the value of the players chosen stat is higher than the computers, then
+    const playGame = (stat)=> { 
+
         let currentPlayerValue = 0 
         let currentComputerValue = 0
-
         setChosenStat(stat)
+
         //compare cards
         console.log(stat)
         if(stat == "strength") {
@@ -161,46 +161,51 @@ const MainContainer = () => {
 
         //player wins
         if (currentPlayerValue > currentComputerValue) {
+            console.log("~~~ player wins round!")
+
             sendTopCardsTo('player')
+            setRoundWinner("player")
+            
+            // if was computers go - switch to player
+            if (currentPlayer !== 'player') { setCurrentPlayer('player') }
 
-            if (computerDeck.length === 0) {
-                setStateOfPlay("victory")
-            }
-            //draw next card
-            setCurrentPlayerCard(playerDeck[0])
-            setCurrentComputerCard(computerDeck[0])
-
+            // check the computer still has cards
+            if (computerDeck.length === 0) { setStateOfPlay("victory") }
 
         // computer wins
         } else if (currentPlayerValue < currentComputerValue) {
-                sendTopCardsTo('computer')
-            //check that there are still cards in the computer deck
-            if (playerDeck.length === 0) {
-                setStateOfPlay("victory")
-            }
+            console.log("~~~ computer wins round!")
 
-            //draw next card
-            setCurrentPlayerCard(copyOfPlayerDeck[0])
-            setCurrentComputerCard(copyOfComputerDeck[0])
+            sendTopCardsTo('computer')
             setRoundWinner("computer")
-            // computer wins so gets a turn
-            // 'computer-again' required to register change in useEffect and continue computers turn
-            if (currentPlayer === 'computer') {
-                setCurrentPlayer('computer_again')
-                console.log(`currentPlayer set to computer_again`)
-            } else {
-                setCurrentPlayer('computer')
-                console.log(`currentPlayer set to computer`)
-            }
+
+            // check player still has cards
+            if (playerDeck.length === 0) { setStateOfPlay("defeat") }
+            
+            // set to computers turn / continue computers turn
+            (currentPlayer === 'computer') ? setCurrentPlayer('computer_again') : setCurrentPlayer('computer')
 
         // draw
         } else if (currentPlayerValue === currentComputerValue){
-                sendTopCardsTo(false)
-            }
-            setCurrentPlayerCard(playerDeck[0])
-            setCurrentComputerCard(computerDeck[0])
+            console.log("~~~ draw this round!")
 
+                sendTopCardsTo(false) //puts top cards to bottom of deck
+                setRoundWinner("draw")
+                
+            // if already computers turn, carry on:
+            if (currentPlayer === 'computer') {
+                setCurrentPlayer('computer_again')
+            } else if (currentPlayer === 'computer_again') {
+                setCurrentPlayer('computer')
+            }
+        }
+
+        //draw next card
+        setCurrentPlayerCard(playerDeck[0])
+        setCurrentComputerCard(computerDeck[0])
     }
+
+    //  ###################################################################################### //
 
     // load differnet html depending on stateOfPlay
     //'loading', 'inPlay', 'victory', 'defeat'
