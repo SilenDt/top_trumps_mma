@@ -28,7 +28,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Godzilla", 
-    bio: "",
+    bio: "Godzilla is a prehistoric reptilian monster awakened and empowered by nuclear radiation",
     speed: 30, 
     strength: 95,
     intelligence: 75, 
@@ -36,7 +36,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "King Kong", 
-    bio: "",
+    bio: "Kong is the last surviving member of a species of huge apes known as kongs that once were numerous on Skull Island",
     speed: 30, 
     strength: 85, 
     intelligence: 55,
@@ -45,7 +45,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Yoda", 
-    bio: "",
+    bio: "a legendary Jedi Master and stronger than most in his connection with the Force. Small in size but wise and powerful",
     speed: 30, 
     strength: 60, 
     intelligence: 100,
@@ -53,6 +53,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Chun Li", 
+    bio: "She works for Interpol and seeks revenge for the death of her father at the hands/feet of the villainous M. Bison",
     speed: 30, 
     strength: 70, 
     intelligence: 60, 
