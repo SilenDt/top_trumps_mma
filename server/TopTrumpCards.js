@@ -4,6 +4,7 @@ db.dropDatabase()
 
 db.superHeroCards.insertMany([{
     name: "SpiderMan",
+    bio: "Bitten by a radioactive spider, Peter Parker's arachnid abilities give him amazing powers he uses to help others",
     speed: 30,
     strength: 15,
     intelligence: 80, 
@@ -11,6 +12,7 @@ db.superHeroCards.insertMany([{
 }, 
 {
     name: "Shrek",
+    bio: "Though surly, dangerous, cynical, misanthropic, and venomously cranky, Shrek is peaceful and does not care to hurt anyone, but just wants to live in solitude and be left alone",
     speed: 30,
     strength: 80,
     intelligence: 50, 
@@ -18,6 +20,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Beyonce",
+    bio: "bee-ON-say. adopted an alter ego, Sasha Fierce, to overcome stage fright. Her success has made her a cultural icon and earned her the nickname 'Queen Bey'",
     speed: 30,
     strength: 80,
     intelligence: 80, 
@@ -25,6 +28,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Godzilla", 
+    bio: "",
     speed: 30, 
     strength: 95,
     intelligence: 75, 
@@ -32,6 +36,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "King Kong", 
+    bio: "",
     speed: 30, 
     strength: 85, 
     intelligence: 55,
@@ -40,6 +45,7 @@ db.superHeroCards.insertMany([{
 },
 {
     name: "Yoda", 
+    bio: "",
     speed: 30, 
     strength: 60, 
     intelligence: 100,
@@ -150,11 +156,12 @@ intelligence: 85,
 url: "https://w7.pngwing.com/pngs/866/236/png-transparent-capcom-dalsim-street-fighter-ii-the-world-warrior-dhalsim-magic-the-gathering-light-on-life-the-yoga-journey-to-wholeness-inner-peace-and-ultimate-freedom-street-fighter-video.png"
 },
 
-{name: "Poison Ivy",       
+{name: "Poison Ivy",  
+bio: "a misanthropic botanist and biochemist who possesses a poisonous touch, enhanced physical abilities, and a supernatural control over plant life",     
 speed: 25, 
 strength: 45, 
 intelligence: 60, 
-url: "https://static.wikia.nocookie.net/character-level/images/f/f8/43cd88a18079047aaac8495d6e4b4306-d6qng56.png/revision/latest?cb=20190411132611"
+url: "https://mediaproxy.tvtropes.org/width/350/https://static.tvtropes.org/pmwiki/pub/images/42310620.jpeg"
 },
 
 ])
