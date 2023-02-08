@@ -181,16 +181,21 @@ const MainContainer = () => {
         // computer wins
         } else if (currentPlayerValue < currentComputerValue) {
             console.log("~~~ computer wins round!")
-
+            let playerHasCardsLeft = false
+            if (playerDeck.length === 1){
+                playerHasCardsLeft = true 
+            }
             sendTopCardsTo('computer')
             setRoundWinner("computer")
 
             // check player still has cards
-            if (playerDeck.length === 0) { setStateOfPlay("defeat") }
-            
-            // set to computers turn / continue computers turn
-            (currentPlayer === 'computer') ? setCurrentPlayer('computer_again') : setCurrentPlayer('computer')
-
+            if (playerHasCardsLeft) { 
+                setStateOfPlay("defeat")
+                setCurrentPlayer('player')
+            } else {
+                // set to computers turn / continue computers turn
+                (currentPlayer === 'computer') ? setCurrentPlayer('computer_again') : setCurrentPlayer('computer')
+            }
         // draw
         } else if (currentPlayerValue === currentComputerValue){
             console.log("~~~ draw this round!")
