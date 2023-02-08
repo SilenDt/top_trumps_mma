@@ -55,19 +55,19 @@ const MainContainer = () => {
         // console.log(shuffledDeck)
 
         //iterate between player 1 and 2
-        let playerNumber = 1 
+        let playerNumber = "player"
 
         const newPlayerDeck = []
         const newComputerDeck = []
-
+        //split the deck
         shuffledDeck.forEach(card => {
 
-            if (playerNumber === 1) {
+            if (playerNumber === "player") {
                 newPlayerDeck.push(card)
-                playerNumber = 2
+                playerNumber = "computer"
             } else {
                 newComputerDeck.push(card)
-                playerNumber = 1
+                playerNumber = "player"
             }
         })
         // update useStates with shuffled cards
@@ -101,51 +101,60 @@ const MainContainer = () => {
     //     const copyOfPlayerDeck = [...playerDeck]
     //     setPlayerDeck(copyOfPlayerDeck)
     // }
-
+    const sendTopCardsTo = (whoWon) => {
+        const copyOfComputerDeck = [...computerDeck]
+        const copyOfPlayerDeck = [...playerDeck]
+        console.log(`This is who won ${whoWon}`)
+        if (!whoWon) {
+            copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
+            copyOfComputerDeck.push(copyOfComputerDeck.shift())
+        } else if (whoWon === "player") {
+            console.log("giving cards to player")
+            copyOfPlayerDeck.push(copyOfComputerDeck.shift())
+            copyOfPlayerDeck.push(copyOfPlayerDeck.shift())            
+        } else {
+            console.log("giving cards to computer")
+            copyOfComputerDeck.push(copyOfPlayerDeck.shift())
+            copyOfComputerDeck.push(copyOfComputerDeck.shift())            
+        }
+        setPlayerDeck(copyOfPlayerDeck)
+        setComputerDeck(copyOfComputerDeck)
+    }
     
-    const playerWinsACardFromComputer = () => {
-        const copyOfComputerDeck = [...computerDeck]
-        const copyOfPlayerDeck = [...playerDeck]
+    // const playerWinsACardFromComputer = () => {
+    //     const copyOfComputerDeck = [...computerDeck]
+    //     const copyOfPlayerDeck = [...playerDeck]
 
-        copyOfPlayerDeck.push(copyOfComputerDeck.shift())
-        copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
+    //     copyOfPlayerDeck.push(copyOfComputerDeck.shift())
+    //     copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
 
-        setPlayerDeck(copyOfPlayerDeck)
-        setComputerDeck(copyOfComputerDeck)
+    //     setPlayerDeck(copyOfPlayerDeck)
+    //     setComputerDeck(copyOfComputerDeck)
 
-    }
+    // }
 
-    const playerLosesACardToComputer = () => {
-        const copyOfComputerDeck = [...computerDeck]
-        const copyOfPlayerDeck = [...playerDeck]
+    // const playerLosesACardToComputer = () => {
+    //     const copyOfComputerDeck = [...computerDeck]
+    //     const copyOfPlayerDeck = [...playerDeck]
 
-        copyOfComputerDeck.shift()
-        copyOfPlayerDeck.shift()
+    //     copyOfComputerDeck.push(copyOfPlayerDeck.shift())
+    //     copyOfComputerDeck.push(copyOfComputerDeck.shift())
 
-        copyOfComputerDeck.push(currentPlayerCard)
-        copyOfComputerDeck.push(currentComputerCard)
+    //     setPlayerDeck(copyOfPlayerDeck)
+    //     setComputerDeck(copyOfComputerDeck)
+    // }
 
-        setPlayerDeck(copyOfPlayerDeck)
-        setComputerDeck(copyOfComputerDeck)
-    }
+    // const drawNextCardOnDraw = () => {
+    //     const copyOfPlayerDeck = [...playerDeck]
+    //     const copyOfComputerDeck = [...computerDeck]
 
-    const drawNextCardOnDraw = () => {
-        const copyOfPlayerDeck = [...playerDeck]
-        const copyOfComputerDeck = [...computerDeck]
+    //     copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
+    //     copyOfComputerDeck.push(copyOfComputerDeck.shift())
 
-        copyOfPlayerDeck.shift()
-        copyOfComputerDeck.shift()
-
-        copyOfPlayerDeck.push(currentPlayerCard)
-        copyOfComputerDeck.push(currentComputerCard)
-
-        setCurrentPlayerCard(copyOfPlayerDeck[0])
-        setCurrentComputerCard(copyOfComputerDeck[0])
-
-        setPlayerDeck(copyOfPlayerDeck)
-        setComputerDeck(copyOfComputerDeck)
-        console.log("values equal")
-    }
+    //     setPlayerDeck(copyOfPlayerDeck)
+    //     setComputerDeck(copyOfComputerDeck)
+    //     console.log("values equal")
+    // }
 
     const playGame = (stat)=> { //gameRound (?)
         //sets the stat the user chooses to play, compares cards to each other,
@@ -170,7 +179,7 @@ const MainContainer = () => {
 
         //reveal opponents card
         if (currentPlayerValue > currentComputerValue) {
-            playerWinsACardFromComputer()
+            sendTopCardsTo('player')
 
             if (computerDeck.length === 0) {
                 setStateOfPlay("Victory")
@@ -180,9 +189,9 @@ const MainContainer = () => {
             setCurrentComputerCard(computerDeck[0])
 
             } else if (currentPlayerValue < currentComputerValue) {
-            playerLosesACardToComputer()
+                sendTopCardsTo('computer')
             //check that there are still cards in the computer deck
-            if (computerDeck.length === 0) {
+            if (playerDeck.length === 0) {
                 setStateOfPlay("Victory")
             }
             //draw next card
@@ -190,8 +199,10 @@ const MainContainer = () => {
             setCurrentComputerCard(computerDeck[0])
 
             } else if (currentPlayerValue === currentComputerValue){
-                drawNextCardOnDraw()
+                sendTopCardsTo(false)
             }
+            setCurrentPlayerCard(playerDeck[0])
+            setCurrentComputerCard(computerDeck[0])
     }
 
     const renderEachPlayersContainer = (user) => {
