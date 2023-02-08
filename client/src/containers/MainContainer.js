@@ -159,28 +159,42 @@ const MainContainer = () => {
             currentComputerValue = currentComputerCard.intelligence
         }
 
-        //reveal opponents card
+        //player wins
         if (currentPlayerValue > currentComputerValue) {
             sendTopCardsTo('player')
 
             if (computerDeck.length === 0) {
-                setStateOfPlay("Victory")
+                setStateOfPlay("victory")
             }
             //draw next card
             setCurrentPlayerCard(playerDeck[0])
             setCurrentComputerCard(computerDeck[0])
 
-            } else if (currentPlayerValue < currentComputerValue) {
+
+        // computer wins
+        } else if (currentPlayerValue < currentComputerValue) {
                 sendTopCardsTo('computer')
             //check that there are still cards in the computer deck
             if (playerDeck.length === 0) {
-                setStateOfPlay("Victory")
+                setStateOfPlay("victory")
             }
-            //draw next card
-            setCurrentPlayerCard(playerDeck[0])
-            setCurrentComputerCard(computerDeck[0])
 
-            } else if (currentPlayerValue === currentComputerValue){
+            //draw next card
+            setCurrentPlayerCard(copyOfPlayerDeck[0])
+            setCurrentComputerCard(copyOfComputerDeck[0])
+            setRoundWinner("computer")
+            // computer wins so gets a turn
+            // 'computer-again' required to register change in useEffect and continue computers turn
+            if (currentPlayer === 'computer') {
+                setCurrentPlayer('computer_again')
+                console.log(`currentPlayer set to computer_again`)
+            } else {
+                setCurrentPlayer('computer')
+                console.log(`currentPlayer set to computer`)
+            }
+
+        // draw
+        } else if (currentPlayerValue === currentComputerValue){
                 sendTopCardsTo(false)
             }
             setCurrentPlayerCard(playerDeck[0])
