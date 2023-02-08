@@ -256,7 +256,7 @@ const MainContainer = () => {
             // only render once current player card is loaded
             // if player deck dispay player card; else computer card
             if (user === "player" && currentPlayerCard) {
-                return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat}/>)
+                return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat} currentPlayer={currentPlayer}/>)
             }
             else if (user ==="computer" || currentComputerCard) {
                 return (<ComputerContainer score={computerScore} card={currentComputerCard} currentPlayer={currentPlayer}/>)
