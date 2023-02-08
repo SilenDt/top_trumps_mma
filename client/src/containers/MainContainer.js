@@ -136,18 +136,24 @@ const MainContainer = () => {
             copyOfComputerDeck.push(copyOfPlayerDeck.shift())
             copyOfComputerDeck.push(copyOfComputerDeck.shift())            
         }
+        console.log(`sendTopCardsTo: setting player & computer decks`)
         setPlayerDeck(copyOfPlayerDeck)
         setComputerDeck(copyOfComputerDeck)
+
+        //draw next card
+        console.log("drawing new cards")
+        setCurrentPlayerCard(copyOfPlayerDeck[0])
+        setCurrentComputerCard(copyOfComputerDeck[0])
+        // setting to local copy avoids bug where on page-refresh first round fails to draw new card
     }
 
     const playGame = (stat)=> { 
 
         let currentPlayerValue = 0 
         let currentComputerValue = 0
-        setChosenStat(stat)
 
-        //compare cards
-        console.log(stat)
+        //get values from cards
+        console.log(`playGame received stat: ${stat}`)
         if(stat == "strength") {
             currentPlayerValue = currentPlayerCard.strength
             currentComputerValue = currentComputerCard.strength
@@ -199,10 +205,6 @@ const MainContainer = () => {
                 setCurrentPlayer('computer')
             }
         }
-
-        //draw next card
-        setCurrentPlayerCard(playerDeck[0])
-        setCurrentComputerCard(computerDeck[0])
     }
 
     //  ###################################################################################### //
