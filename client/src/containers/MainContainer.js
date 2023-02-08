@@ -117,6 +117,27 @@ const MainContainer = () => {
         }
     }
 
+    // 
+    const sendTopCardsTo = (whoWon) => {
+        const copyOfComputerDeck = [...computerDeck]
+        const copyOfPlayerDeck = [...playerDeck]
+        console.log(`This is who won ${whoWon}`)
+        if (!whoWon) {
+            copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
+            copyOfComputerDeck.push(copyOfComputerDeck.shift())
+        } else if (whoWon === "player") {
+            console.log("giving cards to player")
+            copyOfPlayerDeck.push(copyOfComputerDeck.shift())
+            copyOfPlayerDeck.push(copyOfPlayerDeck.shift())            
+        } else {
+            console.log("giving cards to computer")
+            copyOfComputerDeck.push(copyOfPlayerDeck.shift())
+            copyOfComputerDeck.push(copyOfComputerDeck.shift())            
+        }
+        setPlayerDeck(copyOfPlayerDeck)
+        setComputerDeck(copyOfComputerDeck)
+    }
+
     const setStat = (stat)=> {
         setChosenStat(stat)
         console.log(`chosen: ${stat}`)
@@ -175,6 +196,8 @@ const MainContainer = () => {
         setCurrentComputerCard(copyOfComputerDeck[0])
         setRoundWinner("player")
 
+
+        //  ###############################
         // computer wins the round
         } else if (currentPlayerValue < currentComputerValue) {
             console.log("computers card is higher")
