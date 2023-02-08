@@ -243,15 +243,12 @@ const MainContainer = () => {
     return (
         <>
             <div className="player-deck">
-                <h2>Computer</h2>
                 {renderEachPlayersContainer("computer")}
             </div>
             <div className="game-info"> 
-            <h2>Game Info</h2>
             <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner}/>
             </div>
             <div className="player-deck">
-            <h2>Player</h2>
                 {renderEachPlayersContainer("player")}
             </div>
         </>

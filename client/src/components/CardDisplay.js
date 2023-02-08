@@ -8,16 +8,16 @@ const CardDisplay = ({card, setStat, hiddenStats=false, stopClicking=false}) => 
         
     }
 
-    // hiddenStats when computers turn
+    // hide computer stats when computers turn (hiddenStats is false)
     if(hiddenStats) {
         return (
             <div className='card-display'>
-                <img src={card.url} className="character-image"></img>
-                <StatDisplay object_stat={card.name} stat_name={"Name"}></StatDisplay>   
+                <div className="image-wrapper"><img src={card.url} className="character-image"></img></div>
+                <StatDisplay object_stat={card.name} stat_name={"Name"} header={true}></StatDisplay>   
                 <StatDisplay object_stat={card.name} stat_name={"Bio"}></StatDisplay> 
-                <button value="strength">Strength:_________ ??</button>
-                <button value="speed">Speed:_________ ??</button>
-                <button value="intelligence">Intelligence:_________ ??</button>  
+                <button value="strength"><span>Strength:</span>_________ <span>??</span></button>
+                <button value="speed"><span>Speed:</span>_________ <span>??</span></button>
+                <button value="intelligence"><span>Intelligence:</span>_________ <span>??</span></button>  
             </div>
         )
     } else if (stopClicking===true) {
@@ -34,12 +34,12 @@ const CardDisplay = ({card, setStat, hiddenStats=false, stopClicking=false}) => 
     } else {
         return (
             <div className='card-display'>
-                <img src={card.url} className="character-image"></img>
-                <StatDisplay object_stat={card.name} stat_name={"Name"}></StatDisplay>   
+                <div className="image-wrapper"><img src={card.url} className="character-image"></img></div>
+                <StatDisplay object_stat={card.name} stat_name={"Name"} header={true}></StatDisplay>   
                 <StatDisplay object_stat={card.name} stat_name={"Bio"}></StatDisplay>     
-                <button onClick={handleSetStat} value="strength">Strength:_________{card.strength}</button>
-                <button onClick={handleSetStat} value="speed">Speed:_________{card.speed}</button>
-                <button onClick={handleSetStat} value="intelligence">Intelligence:_________{card.intelligence}</button>
+                <button onClick={handleSetStat} value="strength"><span>Strength:</span>_________<span>{card.strength}</span></button>
+                <button onClick={handleSetStat} value="speed"><span>Speed:</span>_________<span>{card.speed}</span></button>
+                <button onClick={handleSetStat} value="intelligence"><span>Intelligence:</span>_________<span>{card.intelligence}</span></button>
             </div>
         )
     }

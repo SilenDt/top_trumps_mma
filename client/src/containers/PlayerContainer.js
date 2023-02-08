@@ -14,15 +14,15 @@ const PlayerContainer = ({score, card, setStat, currentPlayer}) => {
         )
     } else {
 
-        return (
-            <div className="player-container">
+    return (
+        <div className="player-container">
+            <div className="side-bar">
+                <h2>Player</h2>
                 <Score score={score}/>
-                <div className="card">
-                    <CardDisplay card={card} setStat={setStat} stopClicking={true}/>
-                </div>
             </div>
-        )
-    }
+            <CardDisplay card={card} setStat={setStat} />
+        </div>
+    )
 }
 
 export default PlayerContainer

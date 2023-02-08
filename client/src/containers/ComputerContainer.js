@@ -7,8 +7,10 @@ const ComputerContainer = ({score, card, currentPlayer}) => {
     if ( currentPlayer === 'computer' || currentPlayer === 'computer_again' ){
         return (
             <div className="computer-container">
-                <Score score={score}/>
-                <div className="card">
+                <div className="side-bar">
+                    <h2>Computer</h2>
+                    <Score score={score}/>
+                </div>
                 <CardDisplay card={card} hiddenStats={false}/>
                 </div>
             </div>
@@ -16,22 +18,15 @@ const ComputerContainer = ({score, card, currentPlayer}) => {
     } else {
         return (
             <div className="computer-container">
-                <Score score={score}/>
-                <div className="card">
+                <div className="side-bar">
+                    <h2>Computer</h2>
+                    <Score score={score}/>
+                </div>
                 <CardDisplay card={card} hiddenStats={true}/>
                 </div>
             </div>
         )
     }
-
-    return (
-        <div className="computer-container">
-            <Score score={score}/>
-            <div className="card">
-                <CardDisplay card={card} amIcomputer={true}/>
-            </div>
-        </div>
-    )
 
 }
 
