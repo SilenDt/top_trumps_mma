@@ -23,7 +23,7 @@ const CardDisplay = ({card, setStat, hiddenStats=false, stopClicking=false}) => 
     } else if (stopClicking===true) {
         return (
             <div className='card-display'>
-                <img src={card.url} className="character-image"></img>
+                <div className="image-wrapper"><img src={card.url} className="character-image"></img></div>
                 <StatDisplay object_stat={card.name} stat_name={"Name"}></StatDisplay>   
                 <StatDisplay object_stat={card.name} stat_name={"Bio"}></StatDisplay>     
                 <button>Strength:_________{card.strength}</button>

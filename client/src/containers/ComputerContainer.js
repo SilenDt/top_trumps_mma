@@ -11,7 +11,7 @@ const ComputerContainer = ({score, card, currentPlayer}) => {
                     <h2>Computer</h2>
                     <Score score={score}/>
                 </div>
-                    <CardDisplay card={card} hiddenStats={false}/>
+                <CardDisplay card={card} hiddenStats={false}/>
             </div>
         )
     } else {
