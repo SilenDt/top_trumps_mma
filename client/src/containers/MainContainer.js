@@ -218,7 +218,7 @@ const MainContainer = () => {
             // if player deck dispay player card; else computer card
             if (user === "player" && currentPlayerCard) {
 
-                return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={setStat} currentPlayer={currentPlayer}/>)
+                return (<PlayerContainer score={playerScore} card={currentPlayerCard} setStat={playGame} currentPlayer={currentPlayer}/>)
 
             }
             else if (user ==="computer" || currentComputerCard) {

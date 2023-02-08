@@ -6,10 +6,11 @@ const PlayerContainer = ({score, card, setStat, currentPlayer}) => {
     if (currentPlayer === 'player') {
         return (
             <div className="player-container">
-                <Score score={score}/>
-                <div className="card">
-                    <CardDisplay card={card} setStat={setStat} />
+                <div className="side-bar">
+                    <h2>Player</h2>
+                    <Score score={score}/>
                 </div>
+                    <CardDisplay card={card} setStat={setStat} />
             </div>
         )
     } else {
@@ -20,9 +21,10 @@ const PlayerContainer = ({score, card, setStat, currentPlayer}) => {
                 <h2>Player</h2>
                 <Score score={score}/>
             </div>
-            <CardDisplay card={card} setStat={setStat} />
+                <CardDisplay card={card} setStat={setStat} stopClicking={true}/>
         </div>
     )
+    }
 }
 
 export default PlayerContainer
