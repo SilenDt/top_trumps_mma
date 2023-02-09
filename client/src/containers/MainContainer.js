@@ -24,7 +24,9 @@ const MainContainer = () => {
     const [chosenStat, setChosenStat] = useState(null)
 
     const [isPlayerCardHigher, setIsPlayerCardHigher]  = useState(null) //boolean
-    const [roundWinner, setRoundWinner] = useState("first round") 
+    let roundwinners = ['first round', 'player', 'computer']
+    let [roundWinner, setRoundWinner] = useState(roundwinners[0]) 
+    
 
     const [stateOfPlay, setStateOfPlay] = useState('loading') //'loading', 'inPlay', 'victory', 'defeat'
 
@@ -60,7 +62,7 @@ const MainContainer = () => {
     // when it's computers turn, invoke setStat
     useEffect(() => {
         if (currentPlayer !== 'player'){
-            console.log(`useEffect: currentPlayer = ${currentPlayer}`)
+            // console.log(`useEffect: currentPlayer = ${currentPlayer}`)
             console.log("computer is choosing...")
             let smartChoice = chooseStatWisely(currentComputerCard)
             let computersChoice = makeComputerChoose(smartChoice)
@@ -123,7 +125,6 @@ const MainContainer = () => {
     const sendTopCardsTo = (whoWon) => {
         const copyOfComputerDeck = [...computerDeck]
         const copyOfPlayerDeck = [...playerDeck]
-        console.log(`This is who won ${whoWon}`)
         if (!whoWon) {
             copyOfPlayerDeck.push(copyOfPlayerDeck.shift())
             copyOfComputerDeck.push(copyOfComputerDeck.shift())
@@ -144,6 +145,8 @@ const MainContainer = () => {
         console.log("drawing new cards")
         setCurrentPlayerCard(copyOfPlayerDeck[0])
         setCurrentComputerCard(copyOfComputerDeck[0])
+        console.log(`sendTopCardsTo: next player card is: ${copyOfPlayerDeck[0].name}`)
+        console.log(`sendTopCardsTo: next computer card is: ${copyOfComputerDeck[0].name}`)
         // setting to local copy avoids bug where on page-refresh first round fails to draw new card
     }
 
@@ -169,32 +172,36 @@ const MainContainer = () => {
         if (currentPlayerValue > currentComputerValue) {
             console.log("~~~ player wins round!")
 
-            sendTopCardsTo('player')
-            setRoundWinner("player")
-            
-            // if was computers go - switch to player
-            if (currentPlayer !== 'player') { setCurrentPlayer('player') }
-
             // check the computer still has cards
-            if (computerDeck.length === 0) { setStateOfPlay("victory") }
+            if (computerDeck.length <= 1) { 
+                setStateOfPlay("victory") 
+            } else {
+
+                sendTopCardsTo('player')
+                setRoundWinner("player")
+                
+                // if was computers go - switch to player
+                if (currentPlayer !== 'player') { setCurrentPlayer('player') }
+            }
 
         // computer wins
         } else if (currentPlayerValue < currentComputerValue) {
             console.log("~~~ computer wins round!")
-            let playerHasCardsLeft = false
-            if (playerDeck.length === 1){
-                playerHasCardsLeft = true 
-            }
-            sendTopCardsTo('computer')
-            setRoundWinner("computer")
-
+            
             // check player still has cards
-            if (playerHasCardsLeft) { 
+            if (playerDeck.length <= 1) { 
                 setStateOfPlay("defeat")
-                setCurrentPlayer('player')
+                setCurrentPlayer('player') //maybe unnecessary
             } else {
-                // set to computers turn / continue computers turn
-                (currentPlayer === 'computer') ? setCurrentPlayer('computer_again') : setCurrentPlayer('computer')
+                sendTopCardsTo('computer')
+                console.log(`debugging - round winner is ${roundWinner}`)
+                setRoundWinner("computer")
+
+                if (currentPlayer === 'computer') {
+                    setCurrentPlayer('computer_again') 
+                } else { 
+                    setCurrentPlayer('computer')
+                }
             }
         // draw
         } else if (currentPlayerValue === currentComputerValue){
