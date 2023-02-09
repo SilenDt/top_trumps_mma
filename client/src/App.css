@@ -120,6 +120,12 @@ body {
   flex-wrap: wrap;
 }
 
+.bio {
+  height: 4em;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
 /*--------------------------------------*/
 
 

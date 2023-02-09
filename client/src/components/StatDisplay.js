@@ -13,7 +13,7 @@ const StatDisplay = ({stat_name, object_stat, header=false}) => {
 
     } else {
         return (
-            <div className="stat-display">
+            <div className="stat-display bio">
                 <span>{object_stat}</span>
             </div>
     )
