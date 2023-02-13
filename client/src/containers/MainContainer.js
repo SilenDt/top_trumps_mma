@@ -256,14 +256,11 @@ const MainContainer = () => {
 
     return (
         <>
-            <div className="player-deck">
-                {renderEachPlayersContainer("computer")}
-            </div>
-            <div className="game-info"> 
-            <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner}/>
-            </div>
-            <div className="player-deck">
-                {renderEachPlayersContainer("player")}
+            <div className="game-info"> <GameInfoDisplay currentPlayer={currentPlayer} roundWinner={roundWinner}/></div>
+            
+            <div className="player-area">
+                <div className="player-deck">{renderEachPlayersContainer("computer")}</div>
+                <div className="player-deck">{renderEachPlayersContainer("player")}</div>
             </div>
         </>
     )
