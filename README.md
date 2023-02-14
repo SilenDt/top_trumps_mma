@@ -1,12 +1,17 @@
 # TopTrumpsMMA
 
-Welcome to the ultimate Top Trumps arena - Mixed Martial Arts! Where no character is off the table until they're knocked out. 
+Welcome to the ultimate Top Trumps arena - Mixed Martial Arts!
+
+Where no character is out of the deck until they're knocked out. 
 
 This project was built by: 
 
 :wrench: Eilidh Morrone [https://github.com/SilenDt]
+
 :wrench: Fraser Russell [https://github.com/fraserr1991]
+
 :wrench: Fraser Jubb [https://github.com/fraserjubb]
+
 :wrench: Sam Williams [https://github.com/samuel-williams-ed]
 
 Feb 2023, as part of a CodeClan (e62) project. 
