@@ -2,12 +2,12 @@
 
 Welcome to the ultimate Top Trumps arena - Mixed Martial Arts! Where no character is off the table until they're knocked out. 
 
-This project was :wrench: built :wrench: by: 
+This project was built by: 
 
-- Eilidh Morrone [https://github.com/SilenDt]
-- Fraser Russell [https://github.com/fraserr1991]
-- Fraser Jubb [https://github.com/fraserjubb]
-- Sam Williams [https://github.com/samuel-williams-ed]
+:wrench: Eilidh Morrone [https://github.com/SilenDt]
+:wrench: Fraser Russell [https://github.com/fraserr1991]
+:wrench: Fraser Jubb [https://github.com/fraserjubb]
+:wrench: Sam Williams [https://github.com/samuel-williams-ed]
 
 Feb 2023, as part of a CodeClan (e62) project. 
 
