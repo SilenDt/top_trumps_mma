@@ -1,12 +1,11 @@
 # TopTrumpsMMA
 
-Welcome to the ultimate Top Trumps arena - Mixed Martial Arts! :boom:
+Welcome to the ultimate Top Trumps arena :boom: Mixed Martial Arts! :boom:
 
-Where no character is out of the deck until they're knocked out. 
+    Where no character is out of the deck until they're knocked out. 
 
 
-:wrench: This project was built by: 
-```
+## :wrench: This project was built by: 
 
 - Eilidh Morrone  :link:  [https://github.com/SilenDt]
 
@@ -17,7 +16,6 @@ Where no character is out of the deck until they're knocked out.
 - Sam Williams  :link:  [https://github.com/samuel-williams-ed]
 
 Feb 2023, as part of a CodeClan (e62) project. 
-```
 
 # Getting Started with TopTrumpsMMA
 
