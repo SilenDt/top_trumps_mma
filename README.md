@@ -12,9 +12,13 @@ Play against the computer in a calculated battle of wits and fortune.
 Good luck and watch out, the computer's fierce!
 ```
 
-![image of full game](./Images/screenshot-full-screen.png)
+## Screenshots
 
 ![image of single card](./Images/Screenshot%202023-02-14%20at%2010.35.27.png)
+
+![image of full game](./Images/screenshot-full-screen.png)
+
+
 
 ### :wrench: This project was built by: 
 
