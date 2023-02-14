@@ -2,10 +2,13 @@
 
 Welcome to the ultimate Top Trumps arena :boom: Mixed Martial Arts! :boom:
 
-    Where no character is out of the deck until they're knocked out. 
+Where no character is out of the deck until they're knocked out ...well, collected...
 
+The app is a simple game of Top Trumps with one twist - any character goes - super hero, pop star, hall of fame legend. They're all here to help you battle it out to become the ultimate Top Trump champion. Play against the computer in a calculated battle of wits and fortune.
 
-## :wrench: This project was built by: 
+Good luck, and watch out, the computer's fierce!
+
+### :wrench: This project was built by: 
 
 - Eilidh Morrone  :link:  [https://github.com/SilenDt]
 
@@ -16,6 +19,7 @@ Welcome to the ultimate Top Trumps arena :boom: Mixed Martial Arts! :boom:
 - Sam Williams  :link:  [https://github.com/samuel-williams-ed]
 
 Feb 2023, as part of a CodeClan (e62) project. 
+
 
 # Getting Started with TopTrumpsMMA
 
