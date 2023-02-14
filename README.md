@@ -14,7 +14,7 @@ Good luck and watch out, the computer's fierce!
 
 ## Screenshots
 
-![image of single card](./Images/Screenshot%202023-02-14%20at%2010.35.27.png)
+![image of single card](./Images/Taz-card.png)
 
 ![image of full game](./Images/screenshot-full-screen.png)
 
