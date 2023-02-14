@@ -12,6 +12,8 @@ Play against the computer in a calculated battle of wits and fortune.
 Good luck and watch out, the computer's fierce!
 ```
 
+(Images/Screenshot 2023-02-14 at 10.33.49.png)
+
 ### :wrench: This project was built by: 
 
 - Eilidh Morrone  :link:  [https://github.com/SilenDt]
