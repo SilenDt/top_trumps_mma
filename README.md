@@ -12,7 +12,11 @@ Play against the computer in a calculated battle of wits and fortune.
 Good luck and watch out, the computer's fierce!
 ```
 
-(./Images/screenshot-full-screen.png)
+![image of full game](./Images/screenshot-full-screen.png)
+
+<img width="1280" alt="Screenshot 2022-10-07 at 17 15 52" src="https://user-images.githubusercontent.com/108418393/194600967-8edf6807-f4f9-49f7-8b43-3826ecf8bb30.png">
+
+![Screenshot 2022-10-07 at 17 18 36](https://user-images.githubusercontent.com/108418393/194601041-3caf1bc9-da3f-4593-81cf-faef542880a9.png)
 
 ### :wrench: This project was built by: 
 
