@@ -12,7 +12,7 @@ Play against the computer in a calculated battle of wits and fortune.
 Good luck and watch out, the computer's fierce!
 ```
 
-(Images/Screenshot 2023-02-14 at 10.33.49.png)
+(./Images/screenshot-full-screen.png)
 
 ### :wrench: This project was built by: 
 
