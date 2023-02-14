@@ -1,12 +1,16 @@
 # TopTrumpsMMA
 
 Welcome to the ultimate Top Trumps arena :boom: Mixed Martial Arts! :boom:
-
+```
 Where no character is out of the deck until they're knocked out ...well, collected...
 
-The app is a simple game of Top Trumps with one twist - any character goes - super hero, pop star, hall of fame legend. They're all here to help you battle it out to become the ultimate Top Trump champion. Play against the computer in a calculated battle of wits and fortune.
+The app is a simple game of Top Trumps with one twist - any character goes.
+Super hero... pop star... hall of fame legend.. they're all here to help you battle it out to become the ultimate Top Trump champion! 
 
-Good luck, and watch out, the computer's fierce!
+Play against the computer in a calculated battle of wits and fortune.
+
+Good luck and watch out, the computer's fierce!
+```
 
 ### :wrench: This project was built by: 
 
