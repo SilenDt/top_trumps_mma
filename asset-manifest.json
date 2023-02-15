@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/top_trumps_mma/static/css/main.ae90af06.css",
-    "main.js": "/top_trumps_mma/static/js/main.cde3e03a.js",
+    "main.js": "/top_trumps_mma/static/js/main.5e1c337f.js",
     "static/js/787.106cd39f.chunk.js": "/top_trumps_mma/static/js/787.106cd39f.chunk.js",
     "index.html": "/top_trumps_mma/index.html",
     "main.ae90af06.css.map": "/top_trumps_mma/static/css/main.ae90af06.css.map",
-    "main.cde3e03a.js.map": "/top_trumps_mma/static/js/main.cde3e03a.js.map",
+    "main.5e1c337f.js.map": "/top_trumps_mma/static/js/main.5e1c337f.js.map",
     "787.106cd39f.chunk.js.map": "/top_trumps_mma/static/js/787.106cd39f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ae90af06.css",
-    "static/js/main.cde3e03a.js"
+    "static/js/main.5e1c337f.js"
   ]
 }
