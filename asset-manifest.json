@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SilenDt/top_trumps_mma/static/css/main.ae90af06.css",
+    "main.js": "/SilenDt/top_trumps_mma/static/js/main.a6fd822b.js",
+    "static/js/787.106cd39f.chunk.js": "/SilenDt/top_trumps_mma/static/js/787.106cd39f.chunk.js",
+    "index.html": "/SilenDt/top_trumps_mma/index.html",
+    "main.ae90af06.css.map": "/SilenDt/top_trumps_mma/static/css/main.ae90af06.css.map",
+    "main.a6fd822b.js.map": "/SilenDt/top_trumps_mma/static/js/main.a6fd822b.js.map",
+    "787.106cd39f.chunk.js.map": "/SilenDt/top_trumps_mma/static/js/787.106cd39f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae90af06.css",
+    "static/js/main.a6fd822b.js"
+  ]
+}
