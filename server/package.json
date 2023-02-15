@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/SilenDt/top_trumps_mma",
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^3.5.7"
@@ -8,7 +9,9 @@
     "wee-seed": "mongosh < smallDeck.js",
     "install server:dev": "npm install --save-dev nodemon",
     "start": "node server.js",
-    "server:dev": "nodemon server.js"
+    "server:dev": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "name": "server",
   "version": "1.0.0",
