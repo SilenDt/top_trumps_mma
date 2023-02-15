@@ -5,11 +5,11 @@ import PlayerContainer from "./PlayerContainer";
 import ComputerContainer from "./ComputerContainer";
 import GameInfoDisplay from "../components/GameInfoDisplay";
 import chooseStatWisely from "../components/helpers/ComputerLogic";
+import Deck from "../data/Deck";
 
 const MainContainer = () => {
 
-    const [cards, setCards] = useState([])
-    const [playerDeck, setPlayerDeck] = useState([{name:"This hasn't loaded yet", intelligence: 0, speed: 0, strength: 0}])
+    const [playerDeck, setPlayerDeck] = useState([])
     const [computerDeck, setComputerDeck] = useState([])
 
     //Take length of player decks
@@ -33,13 +33,9 @@ const MainContainer = () => {
     // for production
     // get cards from database
     useEffect(() => {
-        fetch('http://localhost:9000/api/cards/')
-        .then(response => response.json())
-        .then(data => {
-            setCards(data)
-            shuffleBothDecks(data) // split the deck between two players
+        const allCards = Deck()
+            shuffleBothDecks(allCards) // split the deck between two players
             setStateOfPlay('inPlay')
-        }) 
     }, [])
 
     // // for testing

@@ -1,4 +1,4 @@
-const Deck = () => {
+function Deck() {
     const cards = [
         {
             name: "SpiderMan",
@@ -186,5 +186,6 @@ const Deck = () => {
         url: "https://mediaproxy.tvtropes.org/width/350/https://static.tvtropes.org/pmwiki/pub/images/42310620.jpeg"
         }
     ]
+    return cards
 }
 export default Deck
